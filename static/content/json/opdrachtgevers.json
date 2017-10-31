@@ -1,0 +1,72 @@
+{
+  "opdrachtgevers": [{
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_aegon.svg"
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_debaak.svg"
+
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_deloitte.svg"
+
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_eneco.svg"
+
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_gemeenterotterdam.svg"
+
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_minvanocw.svg"
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_minvanvws.svg"
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_provzuidholland.svg"
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_stedin.svg"
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_sony.svg"
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_duravermeer.svg"
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_siemens.svg"
+    },
+    {
+      "name": "",
+      "url": "",
+      "imgpath": "/content/logos/logo_maersk.svg"
+    }
+  ]
+}

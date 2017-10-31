@@ -1,0 +1,27 @@
+{
+  "section_x": {
+    "full": {
+      "title": "",
+      "content": "",
+      "imgpath": "/content/img/...",
+      
+      "referentie_alt": ""
+    }
+  },
+  "section_y": {
+    "left": {
+      "title": "",
+      "content": "",
+      "imgpath": "",
+      
+      "referentie_alt": ""
+    },
+    "right": {
+      "title": "",
+      "content": "",
+      "imgpath": "",
+      
+      "referentie_alt": ""
+    }
+  }
+}

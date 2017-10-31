@@ -1,0 +1,63 @@
+{
+
+  "section_1": {
+    "full": {
+      "title": "",
+      "content": "",
+      "imgpath": "/content/img/6. Foto Leiderschapsillustratie.jpg",
+
+      "referentie_alt": ""
+    }
+  },
+  "section_2": {
+    "left": {
+      "title": "Wat we gaan doen:",
+      "content": "<p>Coachings vragen zijn in eerste instantie vaak gerelateerd en komen voort uit de behoefte om als professional verder te groeien, maar ook als mens effectiever te worden. Mijn aanpak is gericht op wat er bij jou &eacute;cht speelt en wat jij wilt aanpakken.<br />Tijdens het coachings traject leer je om effectief te vari&euml;ren in vaardigheden, houding en gedrag. Dat gaan we realiseren met de volgende 5 stappen:</p><ol><li><strong>Bewust worden</strong><br />&ldquo;Waar komt mijn gevoel van onvrede vandaag en wat wil ik leren en ontwikkelen?&rdquo;&rsquo;</li><li><strong>Aan de slag</strong><br />&ldquo;Hoe doe ik het anders. Experimenteren. &ldquo;Wat gaat er goed en wat gaat er minder goed, en hoe kan dit anders?&rdquo;</li><li><strong>Reflecteren</strong><br />Wat kan ik nog veranderen en hoe kom ik nu verder?&rdquo;</li><li><strong>Integreren</strong><br />&ldquo;Hoe houd ik vast wat ik heb geleerd en hoe kan ik zelf blijven ontwikkelen?&rdquo;</li><li><strong>Wie of wat heb ik daarvoor nodig en hoe regel ik dat?</strong></li></ol>",
+      "imgpath": "",
+
+      "referentie_alt": ""
+    },
+    "right": {
+      "title": "",
+      "content": "",
+      "imgpath": "",
+
+      "referentie_alt": "",
+      "referentiespecific":2
+    }
+  },
+  "section_3": {
+    "left": {
+      "title": "",
+      "content": "",
+      "imgpath": "/content/img/illustratie_ontwikkelen.svg",
+      "imgillustration":true,
+
+      "referentie_alt": ""
+    },
+    "right": {
+
+      "title": "Ontwikkelen: Binnen & Buiten verbinden (waar hoort dit bij? ",
+      "content": "<p>Om je te ontwikkelen gaan we binnen en buiten verbinden. We gaan naar binnen kijken om je talenten, drijfveren, waarden en overtuigingen te benoemen om daarmee antwoord te geven op de vervolgvragen:</p><ul><li>Wat <span style='text-decoration: underline;'>ga</span> ik (anders) doen?</li><li>Wat <span style='text-decoration: underline;'>wil</span> ik (anders) doen?</li></ul><p>Vervolgens gaan we kijken hoe je dit naar buiten communiceert door dit te vertalen naar effectief gedrag.</p>",
+      "imgpath": "",
+
+      "referentie_alt": ""
+    }
+  },
+  "section_y": {
+    "left": {
+      "title": "",
+      "content": "",
+      "imgpath": "",
+
+      "referentie_alt": ""
+    },
+    "right": {
+      "title": "",
+      "content": "",
+      "imgpath": "",
+
+      "referentie_alt": ""
+    }
+  }
+}

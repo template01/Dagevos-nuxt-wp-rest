@@ -1,0 +1,61 @@
+{
+  "section_1": {
+    "full": {
+      "title": "",
+      "content": "",
+      "imgpath": "/content/img/7. Foto Met kinderen.jpg",
+
+      "referentie_alt": ""
+    }
+  },
+  "section_2": {
+    "left": {
+      "title": "Phasellus maximus blandit augue sed dignissim.",
+      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam suscipit elit laoreet eleifend cursus. Suspendisse sollicitudin et leo eu maximus. Donec rutrum nisl quis nunc feugiat, vitae rhoncus sem euismod. Nullam eu eleifend felis. Nulla volutpat pharetra facilisis. Duis tempus urna vitae lectus commodo biben</p>",
+      "imgpath": "",
+
+      "referentie_alt": ""
+    },
+    "right": {
+      "title": "",
+      "content": "",
+      "imgpath": "",
+
+      "referentie_alt": "",
+      "referentiespecific":2
+    }
+  },
+  "section_3": {
+    "left": {
+      "title": "",
+      "content": "",
+      "imgpath": "/content/img/illustratie_visie.svg",
+      "imgillustration":true,
+
+      "referentie_alt": ""
+    },
+    "right": {
+      "title": "Ontwikkeling op 4 niveaus",
+      "content": "<p>Desgewenst gaan we nog een stap verder en kijken we ook naar de impact van jouw handelen, dat van je team en je organisatie op de maatschappij. Teven kijken we naar wat het effect van de maatschappij op jou is, en hoe je daar slim mee om kunt gaan. </p>",
+      "imgpath": "",
+
+      "referentie_alt": ""
+    }
+  },
+  "section_y": {
+    "left": {
+      "title": "",
+      "content": "",
+      "imgpath": "",
+
+      "referentie_alt": ""
+    },
+    "right": {
+      "title": "",
+      "content": "",
+      "imgpath": "",
+
+      "referentie_alt": ""
+    }
+  }
+}
