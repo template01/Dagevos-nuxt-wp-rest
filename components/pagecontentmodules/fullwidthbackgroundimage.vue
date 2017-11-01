@@ -1,6 +1,6 @@
 <template>
   <div class="fullimage">
-    <div :style="{'background-image':'url(\''+content.url+'\')'}" class="index-full-cover heightTall hidden-sm-down">
+    <div :style="{'background-image':'url(\''+content.sizes.large+'\')'}" class="index-full-cover heightTall hidden-sm-down">
     </div>
     <div class="container px-5 hidden-sm-up">
       <div class="row">

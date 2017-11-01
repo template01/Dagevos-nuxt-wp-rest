@@ -1,7 +1,7 @@
 <template>
 <div>
   <dagevosHeader :menuitems="menuitems"></dagevosHeader>
-  <dagevosPageContent :pagecontent="pagecontent[0]"></dagevosPageContent>
+  <dagevosPageContent :referenties="referenties" :pagecontent="pagecontent[0]"></dagevosPageContent>
   <!-- <dagevosIndex :indexIndexProp="indexIndex" :indexRefsProp="indexRefs" :indexOpdrachtsProp="indexOpdrachts"></dagevosIndex> -->
   <dagevosFooter></dagevosFooter>
 
@@ -40,23 +40,27 @@ export default {
     route
   }) {
     if (route.path != '/') {
-      let [pagecontentRes,menuitemsRes] = await Promise.all([
+      let [pagecontentRes, menuitemsRes, referentiesRes] = await Promise.all([
         axios.get(store.state.apiRoot + 'pages' + '?slug=' + route.path),
-        axios.get(store.state.apiRoot + 'pages'+'?fields=id,title.rendered,slug,menu_order'),
+        axios.get(store.state.apiRoot + 'pages' + '?fields=id,title.rendered,slug,menu_order'),
+        axios.get(store.state.apiRoot + 'references' + '?fields=acf'),
       ])
       return {
         pagecontent: pagecontentRes.data,
-        menuitems:menuitemsRes.data
+        menuitems: menuitemsRes.data,
+        referenties: referentiesRes.data
       }
     } else {
-      let [pagecontentRes,menuitemsRes] = await Promise.all([
+      let [pagecontentRes, menuitemsRes, referentiesRes] = await Promise.all([
         axios.get(store.state.apiRoot + 'pages' + '?slug=' + '/index'),
-        axios.get(store.state.apiRoot + 'pages'+'?fields=id,title.rendered,slug,menu_order'),
+        axios.get(store.state.apiRoot + 'pages' + '?fields=id,title.rendered,slug,menu_order'),
+        axios.get(store.state.apiRoot + 'references' + '?fields=acf'),
 
       ])
       return {
         pagecontent: pagecontentRes.data,
-        menuitems:menuitemsRes.data
+        menuitems: menuitemsRes.data,
+        referenties: referentiesRes.data
       }
     }
   }

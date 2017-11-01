@@ -2,7 +2,7 @@ module.exports = {
   /*
    ** Headers of the page
    */
-  mode: 'spa', 
+  mode: 'spa',
   head: {
     title: 'Het Echte Werkt!',
     meta: [{
@@ -22,7 +22,11 @@ module.exports = {
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
+    }],
+    script: [{
+      src: '/content/js/sticky.min.js'
     }]
+
   },
   /*
    ** Customize the progress-bar color
@@ -35,16 +39,22 @@ module.exports = {
     '~assets/css/font-awesome.min.css',
     '~/assets/fonts/coolvetica+aileron/stylesheet.css',
     '~assets/css/compiledbootstrap/bootstrap.css',
-    '~assets/css/main.css'
+    '~assets/css/main.css',
+    'swiper/dist/css/swiper.css'
     //'bootstrap/dist/css/bootstrap.css',
     //'bootstrap-vue/dist/bootstrap-vue.css'
 
   ],
 
-  plugins: ['~plugins/routerextended.js','~plugins/visibility-plugin.js', '~plugins/bootstrap-vue-plugin', '~/plugins/lodash-plugin.js', '~/plugins/vue-resource-plugin.js', {
-    src: '~/plugins/vueawesomeswiper-plugin.js',
-    ssr: false
-  }],
+  plugins: ['~plugins/routerextended.js', '~plugins/visibility-plugin.js', '~plugins/bootstrap-vue-plugin', '~/plugins/lodash-plugin.js', '~/plugins/vue-resource-plugin.js', {
+      src: '~/plugins/vueawesomeswiper-plugin.js',
+      ssr: false
+    },
+    // {
+    //   src: '~/plugins/stickyjs-plugin.js',
+    //   ssr: false
+    // }
+  ],
 
 
   router: {
@@ -97,6 +107,6 @@ module.exports = {
      ** Run ESLINT on save
      */
 
-    vendor: ['axios', 'bootstrap-vue', 'vue-awesome-swiper']
+    vendor: ['sticky-js', 'axios', 'bootstrap-vue', 'vue-awesome-swiper']
   }
 }

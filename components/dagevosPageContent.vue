@@ -11,6 +11,9 @@
         </template>
       </columnwrapper>
     </div>
+    <div v-if="$route.path==='/referenties'">
+      <referentiesSlideshow :refsProp="referenties"></referentiesSlideshow>
+    </div>
   </div>
 </template>
 
@@ -20,6 +23,7 @@ import dagevosSingleReferentie from '~/components/dagevosSingleReferentie.vue'
 import fullwidthbackgroundimage from '~/components/pagecontentmodules/fullwidthbackgroundimage.vue'
 import textblock from '~/components/pagecontentmodules/textblock.vue'
 import illustration from '~/components/pagecontentmodules/illustration.vue'
+import referentiesSlideshow from '~/components/dagevosReferentiesSlideshow.vue'
 import imagecomp from '~/components/pagecontentmodules/image.vue'
 import columnwrapper from '~/components/pagecontentmodules/columnwrapper.vue'
 
@@ -33,13 +37,14 @@ export default {
       // indexOpdrachtgevers: [],
     }
   },
-  props: ['refs', 'pagecontent'],
+  props: ['refs', 'pagecontent','referenties'],
   components: {
     dagevosSingleReferentie,
     fullwidthbackgroundimage,
     textblock,
     illustration,
     imagecomp,
+    referentiesSlideshow,
     columnwrapper
   }
 

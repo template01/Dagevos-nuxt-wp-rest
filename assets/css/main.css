@@ -8,6 +8,12 @@ body {
   color: #552E87;
 }
 
+.spinner{
+  width: 100px !important;
+  height: 100px !important;
+  background-color: #552E87 !important;
+}
+
 .page-enter-active, .page-leave-active {
   transition: opacity .150s;
 }
