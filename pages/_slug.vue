@@ -19,6 +19,7 @@ import dagevosPageContent from '~/components/dagevosPageContent.vue'
 // import indexOpdrachts from '~/static/content/json/opdrachtgevers.json'
 
 import axios from 'axios'
+// import store from 'vuex'
 
 
 export default {
@@ -33,37 +34,78 @@ export default {
     return {}
   },
 
+  mounted() {
+    // console.log('/// FROM STORE ///')
+    // console.log(this.$store.state.menuitems)
+    // store.commit('SET_menuitems', menuitemsRes)
+    this.$store.commit('SET_menuitems', this.menuitems)
+    this.$store.commit('SET_references', this.referenties)
+    console.log(this.$store.state.menuitems)
+
+    // console.log('/// FROM STORE ///')
+  },
+
   async asyncData({
     store,
     query,
     error,
     route
   }) {
-    if (route.path != '/') {
-      let [pagecontentRes, menuitemsRes, referentiesRes] = await Promise.all([
-        axios.get(store.state.apiRoot + 'pages' + '?slug=' + route.path),
-        axios.get(store.state.apiRoot + 'pages' + '?fields=id,title.rendered,slug,menu_order'),
-        axios.get(store.state.apiRoot + 'references' + '?fields=acf'),
-      ])
-      return {
-        pagecontent: pagecontentRes.data,
-        menuitems: menuitemsRes.data,
-        referenties: referentiesRes.data
-      }
-    } else {
-      let [pagecontentRes, menuitemsRes, referentiesRes] = await Promise.all([
-        axios.get(store.state.apiRoot + 'pages' + '?slug=' + '/index'),
-        axios.get(store.state.apiRoot + 'pages' + '?fields=id,title.rendered,slug,menu_order'),
-        axios.get(store.state.apiRoot + 'references' + '?fields=acf'),
 
+
+    if (store.state.menuitems == null && store.state.references == null) {
+      // GET MENU AND REFS IF NOT IN STORE
+
+      let [menuitemsRes, referentiesRes] = await Promise.all([
+        axios.get(store.state.apiRoot + 'pages' + '?fields=id,title.rendered,slug,menu_order'),
+        axios.get(store.state.apiRoot + 'references' + '?fields=acf'),
       ])
-      return {
-        pagecontent: pagecontentRes.data,
-        menuitems: menuitemsRes.data,
-        referenties: referentiesRes.data
+      // GET PAGE CONTENT
+      if (route.path != '/') {
+        let [pagecontentRes] = await Promise.all([
+          axios.get(store.state.apiRoot + 'pages' + '?slug=' + route.path),
+        ])
+        return {
+          pagecontent: pagecontentRes.data,
+          menuitems: menuitemsRes.data,
+          referenties: referentiesRes.data
+        }
+      } else {
+        let [pagecontentRes] = await Promise.all([
+          axios.get(store.state.apiRoot + 'pages' + '?slug=' + '/index'),
+        ])
+        return {
+          pagecontent: pagecontentRes.data,
+          menuitems: menuitemsRes.data,
+          referenties: referentiesRes.data
+        }
       }
+    }else{
+      // menuitems: store.state.menuitems,
+      // referenties: store.state.references
+      if (route.path != '/') {
+        let [pagecontentRes] = await Promise.all([
+          axios.get(store.state.apiRoot + 'pages' + '?slug=' + route.path),
+        ])
+        return {
+          pagecontent: pagecontentRes.data,
+          menuitems: store.state.menuitems,
+          referenties: store.state.references
+        }
+      } else {
+        let [pagecontentRes] = await Promise.all([
+          axios.get(store.state.apiRoot + 'pages' + '?slug=' + '/index'),
+        ])
+        return {
+          pagecontent: pagecontentRes.data,
+          menuitems: store.state.menuitems,
+          referenties: store.state.references
+        }
+
+      }
+
     }
-  }
+  },
 
 
 

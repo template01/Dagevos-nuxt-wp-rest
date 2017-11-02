@@ -26,8 +26,8 @@
           <div class="col-sm-6 float-left">
             <div class="p-5" style="">
               <div class="">
-                <h6 class="" v-html="referentie.acf.name"></h6>
-                <h6 class="" v-html="referentie.acf.function"></h6>
+                <h4 class="" v-html="referentie.acf.name"></h4>
+                <h4 class="" v-html="referentie.acf.function"></h4>
                 <h1 v-html="referentie.acf.blurb">
                 </h1>
               </div>
@@ -84,99 +84,6 @@
 
     </div>
   </div>
-
-
-
-<!--
-  <div class="container  px-5 greyBackground">
-    <div class="row">
-
-
-      <swiper class="greyBackground" :options="swiperOption" ref="mySwiper" style="">
-        <swiper-slide class="" v-for="(referentie, index) in refsProp.referenties" v-bind:key="index">
-          <div class="col-sm-6 float-left">
-            <div class="p-5" style="">
-              <div class="">
-                <h6 class="" v-html="referentie.name"></h6>
-                <h6 class="" v-html="referentie.function"></h6>
-                <h1 v-html="referentie.blurb">
-                </h1>
-              </div>
-            </div>
-          </div>
-
-          <transition name="fade">
-
-          <div v-if="showRef" class="col-sm-6 float-left  hidden-sm-up ">
-            <div class="p-5" style="">
-              <div class="">
-                <div v-html="referentie.content">
-                </div>
-              </div>
-            </div>
-          </div>
-        </transition>
-        <div class="col-sm-12 pb-mobile">
-
-          <div class="col-sm-12  mb-5 mt-1 float-left  buttonImitate buttonBlueNoAnimate  hidden-sm-up "  @click="toggleLees()" style="border:0px; margin-bottom: 20px; text-align:center;">
-            <span v-if="!showRef">
-              Lees volledige referentie <i class="fa fa-hand-o-down" aria-hidden="true"></i>
-            </span>
-            <span v-if="showRef">
-              Collapse volledige referentie <i class="fa fa-hand-o-up" aria-hidden="true"></i>
-            </span>
-          </div>
-          </div>
-
-          <div class="col-sm-6 float-left  hidden-sm-down ">
-            <div class="p-5" style="">
-              <div class="">
-                <div v-html="referentie.content">
-                </div>
-              </div>
-            </div>
-          </div>
-        </swiper-slide>
-
-        <div class="swiper-pagination hidden-sm-down" slot="pagination"></div>
-        <div class="swiper-pagination swiper-pagination-sm hidden-sm-up " slot="pagination"></div>
-        <div class="swiper-button-prev hidden-sm-down" style='background-image:' slot="button-prev"></div>
-        <div class="swiper-button-next hidden-sm-down" slot="button-next"></div>
-      </swiper>
-
-    </div>
-    <div class=" hidden-sm-up beigeBackground">
-
-      <div class="">
-        <p style="margin: 0; font-size:100%; text-align:center;">
-          swipe voor meer referenties
-        </p>
-      </div>
-
-    </div>
-  </div>
-
-
-  <div class="container p-5 greyBackground" style="">
-
-    <div class="row " style="">
-
-      <div class="col-sm-2 p-4 flexer hidden-sm-down" v-for="opdrachtgever in opdrachtsProp.opdrachtgevers">
-        <img style="max-width:100%;" class="flexerContentCenter" :src="opdrachtgever.imgpath" alt="">
-      </div>
-
-      <div class="row mt-5 hidden-sm-up pt-mobile pb-mobile">
-        <div class="flexer" style="width:50%; padding-left: 5%; padding-right: 5%; padding-top: 1rem; padding-bottom: 1rem;"  v-for="opdrachtgever in opdrachtsProp.opdrachtgevers">
-          <img style="width:100%;" class="flexerContentCenter" :src="opdrachtgever.imgpath" alt="">
-        </div>
-      </div>
-
-
-    </div>
-
-  </div> -->
-
-
 
 </div>
 </template>

@@ -36,7 +36,7 @@ hr {
 }
 
 .row{
-   max-width:1600px !important;
+   max-width:1280px !important;
    margin: auto !important;
 }
 
@@ -64,11 +64,17 @@ h6 {
 }
 
 p, ul, ol {
-  color: #552E87;
-  font-size: 20px;
-  letter-spacing: -0.02rem;
-  font-family: 'Aileron';
-  line-height: 1.4;
+  /*color: #552E87;*/
+  color: #505050;
+  /*font-size: 20px;*/
+  font-size: 18px;
+  /*letter-spacing: -0.02rem;*/
+  letter-spacing: -.01rem;
+  /*font-family: Aileron;*/
+  font-family: Radnika;
+
+  /*line-height: 1.4;*/
+  line-height: 1.5;
   font-weight: 400;
 }
 @media (max-width:500px) {
@@ -81,10 +87,10 @@ p, ul, ol {
       font-size: 1.2rem !important;
   }
   p, ul, ol {
-    color: #552E87;
+    /*color: #552E87;*/
     font-size: 16px;
     letter-spacing: -0.02rem;
-    font-family: 'Aileron';
+    /*font-family: 'Aileron';*/
     line-height: 1.4;
     font-weight: 400;
   }
@@ -96,14 +102,14 @@ p, ul, ol {
  input, .input-group, .input-group-addon {
     background-color: transparent !important;
     border-color: #552E87 !important;
-    font-family: 'Aileron';
+    font-family: Radnika;
     color: #552E87 !important;
 }
 
 .form-control {
    background-color: white !important;
    border-color: #552E87 !important;
-   font-family: 'Aileron' !important;
+   font-family: Radnika !important;
    color: initial !important;
  }
 
@@ -165,6 +171,7 @@ a {
 
 .nuxt-link-exact-active{
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .container {
@@ -335,7 +342,7 @@ a {
 
 @media (max-width:1300px) and (min-width:1111px) {
   p, ul, ol {
-    font-size: 20px;
+    font-size: 18px;
     /*color: red;*/
   }
   .nav-link, #dagevosHeader h4{

@@ -33,14 +33,15 @@
   </div>
 
 
+  <div id="shadow-menuDesktop" class="hidden-md-down" :style="{'height':shadowMenuDesktopHeight+'px'}"></div>
+  <div id="menuDesktop" class="hidden-md-down" :style="fixMenuDesktop ? {'position':'fixed'}:{}">
 
-  <div id="menuDesktop" class="hidden-md-down" :style="smallLogoShow ? {'margin-bottom':setMenuMarginBottom}:{}">
-
-    <div class="columnwrapper container pt-5 pl-5 pr-5">
+    <div id="menuDesktopLogoWrapper" class="columnwrapper container pl-5 pr-5" :class="smallLogoShow ? 'pt-4':'pt-5'">
       <div class="row">
         <div class="logo">
           <nuxt-link :to="'/'">
-            <img src="content/img/HetEchteWerk_CMYK.817d17a.svg" />
+            <img v-if="!smallLogoShow" src="content/img/HetEchteWerk_CMYK.817d17a.png" />
+            <img v-else src="/content/img/hetechtewerk_cmyk_sm.50643ea.png" />
           </nuxt-link>
         </div>
       </div>
@@ -50,15 +51,7 @@
       <div id="menuWrapper" class="blueBackground">
 
         <div class="menuitems columnwrapper container">
-          <div class="menuitemsInner pb-4 pt-4">
-            <!-- <transition name="fade"> -->
-            <div class="smallLogo" v-if="" :class="smallLogoShow ? 'smallLogoExpanded':'smallLogoCollapsed'">
-              <nuxt-link :to="'/'">
-                <img src="/content/img/hetechtewerk_cmyk_sm.50643ea.svg" />
-              </nuxt-link>
-
-            </div>
-            <!-- </transition> -->
+          <div class="menuitemsInner pb-4" :class="smallLogoShow ? 'pt-0':'pt-4'">
             <div class="pt-2">
               <nuxt-link v-for="link in orderedMenulist" class="" :to="link.slug">
                 <p v-html="link.title.rendered">
@@ -84,10 +77,11 @@ export default {
 
   data() {
     return {
-      hideNav: true,
+      // hideNav: true,
+      fixMenuDesktop: false,
       smallLogoShow: false,
       setMenuMarginBottom: 0,
-
+      shadowMenuDesktopHeight: 0,
     }
   },
 
@@ -107,80 +101,51 @@ export default {
     // menuitems
   },
   methods: {
-    initSticky: function() {
-      var h = document.getElementById("menuWrapper");
-      // var readout = document.getElementById("readout");
-      var stuck = false;
-      var stickPoint = getDistance();
-
-      function getDistance() {
-        var topDist = h.offsetTop;
-        return topDist;
-      }
-
+    swabMenuDesktopLogo: function() {
       var vm = this
-      window.onscroll = function(e) {
-        var distance = getDistance() - window.pageYOffset;
-        var offset = window.pageYOffset;
-        // readout.innerHTML = stickPoint + '   ' + distance + '   ' + offset + '   ' + stuck;
-        if ((distance <= 0) && !stuck) {
-          h.style.position = 'fixed';
-          h.style.top = '0px';
-          stuck = true;
-          vm.smallLogoShow = true;
-          setTimeout(function(){
-            vm.setMenuMarginBottom = vm.$el.querySelector('#menuWrapper').offsetHeight+'px'
-          },500)
-        } else if (stuck && (offset <= stickPoint)) {
-
-          h.style.position = 'static';
-          stuck = false;
-          vm.smallLogoShow = false;
-
-        }
+      var logoHeight = this.$el.querySelector('#menuDesktop .logo').offsetHeight
+      if (window.pageYOffset > logoHeight) {
+        this.smallLogoShow = true
+      } else {
+        this.smallLogoShow = false
       }
-
     },
-    test: function() {
-      // var vm = this
-      // var heightHeader = this.$el.offsetHeight + parseFloat(window.getComputedStyle(vm.$el).margin) * 2
-      // if (window.pageYOffset > heightHeader) {
-      //   this.hideNav = false
-      // } else {
-      //   this.hideNav = true
-      //
-      // }
+    setShadowMenuDesktopHeight: function() {
+      this.shadowMenuDesktopHeight = this.$el.querySelector("#menuDesktop").offsetHeight
+      this.fixMenuDesktop = true
     }
   },
   mounted() {
     // this.test()
-    this.initSticky()
+    var vm = this
 
-
-
+    setTimeout(function(){
+      vm.setShadowMenuDesktopHeight()
+    },250)
 
     if (_.VERSION) {
       console.log('underscore loaded')
     }
     // window.addEventListener('scroll', this.test)
-    var vm = this
     window.addEventListener('scroll', _.throttle(() => {
-      vm.test()
+      vm.swabMenuDesktopLogo()
     }, 200))
   },
 
 
+
 }
 </script>
+<style>
+#menuDesktop .nuxt-link-exact-active p{
+  font-weight: 500 !important;
+}
+
+</style>
 
 <style lang="scss" scoped>
-// .fade-enter-active, .fade-leave-active {
-//   // transition: transform .2s, opacity .2s;
-// }
-// .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-//   // transform: translateY(-100px);
-//   opacity: 0;
-// }
+
+
 #menuMobile {
     width: 100%;
 
@@ -238,10 +203,20 @@ export default {
 .stickyMenu {
     background: green;
 }
-#menuDesktop{
-  transition: 0s;
-  // transition: margin-bottom 0.5s;
+#menuDesktop {
+    transition: 0s;
+    // position: fixed;
+    width: 100%;
+    background: #E6F4FF;
+    z-index: 999999999999;
+    top: 0;
 
+    // transition: margin-bottom 0.5s;
+
+}
+
+#menuDesktopLogoWrapper{
+  transition: padding-top 0.5s;
 }
 #menuWrapper {
     z-index: 999999999999;

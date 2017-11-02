@@ -1,15 +1,9 @@
 <template>
-  <!-- <div class="col-sm-6 pb-mobile">
-    <div class="p-5">
-      <div class="">
-        <img class="illustration" style="max-width:100%;" :src="content.url" alt="" />
-      </div>
-    </div>
-  </div> -->
-  <div class="col-sm-6">
-    <div class="float-left " :class="index === 0 ? 'pullimage-left' : 'pullimage-right'">
+
+  <div class="col-sm-6 backgroundImage" :style="{'background-image':'url('+content.sizes.large+')'}">
+    <!-- <div class="float-left " :class="index === 0 ? 'pullimage-left' : 'pullimage-right'">
       <img style="max-width:100%;" class="" :src="content.url" alt="" />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -28,4 +22,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .backgroundImage{
+    // background-attachment: fixed;
+    background-size: cover;
+  }
+
 </style>
