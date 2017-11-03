@@ -56,6 +56,9 @@ module.exports = {
     // }
   ],
 
+ router: {
+    // base: '/testing'
+  },
   //
   // router: {
   //   scrollBehavior: function(to, from, savedPosition) {

@@ -32,9 +32,10 @@ export default {
 .fullwidthtextblock{
 
   *{
-    font-size: 19px !important;
+    font-weight: 300;
+    font-size: 23px !important;
     color: #572986 !important;
-    line-height:1.7 !important;
+    line-height:1.25 !important;
     margin: 0;
   }
 

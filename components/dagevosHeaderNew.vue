@@ -5,7 +5,7 @@
       <div class="p-5">
         <div class="mobileLogo">
           <nuxt-link :to="'/'">
-            <img src="/content/img/HetEchteWerk_CMYK.817d17a.svg" />
+            <img src="content/img/HetEchteWerk_CMYK.817d17a.png" />
           </nuxt-link>
 
         </div>
@@ -41,7 +41,7 @@
         <div class="logo">
           <nuxt-link :to="'/'">
             <img v-if="!smallLogoShow" src="content/img/HetEchteWerk_CMYK.817d17a.png" />
-            <img v-else src="/content/img/hetechtewerk_cmyk_sm.50643ea.png" />
+            <img v-else src="content/img/hetechtewerk_cmyk_sm.50643ea.png" />
           </nuxt-link>
         </div>
       </div>
@@ -54,7 +54,7 @@
           <div class="menuitemsInner pb-4" :class="smallLogoShow ? 'pt-0':'pt-4'">
             <div class="pt-2">
               <nuxt-link v-for="link in orderedMenulist" class="" :to="link.slug">
-                <p v-html="link.title.rendered">
+                <p v-html="link.title.rendered === 'Index' ? 'Home':link.title.rendered">
                 </p>
               </nuxt-link>
             </div>
@@ -89,9 +89,9 @@ export default {
     orderedMenulist: function() {
 
       var menuitemsTemp = this.menuitems
-      var removeIndex = _.remove(menuitemsTemp, {
-        slug: 'index'
-      });
+      // var removeIndex = _.remove(menuitemsTemp, {
+      //   slug: 'index'
+      // });
       var sortmenuitems = _.sortBy(menuitemsTemp, 'menu_order')
 
       return sortmenuitems

@@ -6,29 +6,30 @@
     </div>
   </div>
 </div> -->
-<div class="col-sm-6 pb-mobile negativeSpacerTopL">
-  <div class="p-5">
+<div class="col-sm-6 pb-mobile whiteBackground referenceSingleBlurbWrapper">
+  <div class="">
     <div :class="uniqueId" class="">
-      <transition name="fade">
-        <div class="dagevosSingleReferentie card p-3" v-if="show">
-          <div class="card-block">
-            <div class="row">
-              <div class="">
-                <p class="card-title float-left mr-3">Referentie</p>
-              </div>
+        <!-- <div class="dagevosSingleReferentie card p-3" v-if="show"> -->
+        <div class="Aligner p-5">
+          <div class="Aligner-item Aligner-item--top p-5">
+            <div class="">
+              <p class="card-title float-left mr-3">Referentie</p>
+              <nuxt-link class="card-title float-right mr-3" to="/referenties"><p class="">Lees meer referenties</p></nuxt-link>
             </div>
-            <div class="row mb-3">
-              <h4 class="card-text referenceSingleBlurb" v-html="popupContent.blurb"></h4>
-            </div>
-            <div class="row pt-2">
-            <p class="card-text mr-3 " style="margin-bottom:0" v-html="popupContent.name"></p>
-            <p class="card-text mr-3" style="margin-bottom:0" v-html="popupContent.function"></p>
-            <p class="card-text" style="margin-bottom:0" v-html="popupContent.company"></p>
-        </div>
+          </div>
+          <div class="Aligner-item Aligner-item--middle p-5">
+            <transition name="fade">
+            <p v-if="show" class="card-text referenceSingleBlurb" v-html="popupContent.blurb"></p>
+          </transition>
+          </div>
+          <div class="Aligner-item Aligner-item--bottom p-5">
+            <p class="float-left" style="margin-bottom:0" v-html="popupContent.name+' -&nbsp;'"></p>
+            <p class="float-left" style="margin-bottom:0" v-html="popupContent.function+' -&nbsp;'"></p>
+            <p class="float-left" style="margin-bottom:0" v-html="popupContent.company"></p>
           </div>
         </div>
+        <!-- </div> -->
 
-      </transition>
     </div>
   </div>
 </div>
@@ -72,7 +73,7 @@ export default {
       return stringGen(48);
 
     },
-    setFeaturedImage: function() {
+    slideinRef: function() {
       console.log(document.querySelectorAll('.' + this.uniqueId))
       console.log(this.uniqueId)
       var vm = this
@@ -98,7 +99,7 @@ export default {
 
   watch: {
     uniqueId: function() {
-      this.setFeaturedImage()
+      this.slideinRef()
 
     }
   }
@@ -107,28 +108,81 @@ export default {
 </script>
 
 <style lang="scss">
+.referenceSingleBlurbWrapper{
+  min-height: 460px;
+}
+.Aligner {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.Aligner-item {
+    width: 100%;
+    display: inline-block;
+}
+
+.Aligner-item--top {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.Aligner-item--middle {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    *{
+      margin: 0;
+    }
+}
+.Aligner-item--bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.purpleBackground {
+    background: #552e87;
+    * {
+        color: white !important;
+    }
+}
+
+.whiteBackground {
+    background: rgba(85, 46, 135, 0.15);
+    * {
+        color: #552e87 !important;
+    }
+}
+
+.dagevosSingleReferentie {
+    box-shadow: 0 0 20px 0 rgba(100,100,100,0.1);
+
+}
 .fade-enter-active,
 .fade-leave-active {
-  transition: transform .5s, opacity .5s, max-height 2s;
-  -webkit-transition-delay: .250s;
-  transition-delay: .250s;
-  max-height: 1200px;
-  overflow: hidden;
+    transition: transform 1s, opacity 1s, max-height 3s;
+    -webkit-transition-delay: 0.450s;
+    transition-delay: 0.450s;
+    max-height: 1200px;
+    overflow: hidden;
 }
 
 .fade-enter,
 .fade-leave-to {
-  opacity: 0;
-  max-height: 0px;
-  transform: translateY(30px);
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(30px);
 }
-.referenceSingleBlurb{
- *{
-   font-size: inherit !important;
-   line-height: inherit !important;
-   font-family: inherit !important;
-   color: inherit !important;
-   letter-spacing: inherit !important;
- }
+.referenceSingleBlurb {
+    * {
+        font-weight: 300;
+        font-size: 23px !important;
+        line-height: 1.25 !important;
+        font-family: inherit !important;
+        color: inherit !important;
+        letter-spacing: inherit !important;
+    }
 }
 </style>

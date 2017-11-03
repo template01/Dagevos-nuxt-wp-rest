@@ -14,7 +14,7 @@
             <br />
             <a style="text-decoration:none" href="https://www.linkedin.com/in/renedagevos/"><i class="fa fa-linkedin" aria-hidden="true" style="position:absolute; margin-top:4px; "></i> <span class="pl-4">renedagevos</span></a>
             <br /><i class="fa fa-heart-o" aria-hidden="true" style="position:absolute; margin-top:4px; "></i> <span class="pl-4"> Website door
-            <a href="http://www.template01.info">Template Studio</a></span>
+            <a href="http://www.template01.info">Template Studio</a> en <a href="http://pumphouse.nl/">The Pumphouse</a></span>
           </p>
           <!-- <nuxt-link to="#" class="btn btn-primary">Go somewhere</nuxt-link> -->
         </div>
