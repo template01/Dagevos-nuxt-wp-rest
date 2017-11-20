@@ -1,5 +1,6 @@
 body {
-  background: #E6F4FF;
+  /*background: #E6F4FF;*/
+  background: #f3f3f3;
   /*background: -webkit-linear-gradient(left, #F6FBFF 50%, #ECECEC 50%);
   background: -o-linear-gradient(right, #F6FBFF 50%, #ECECEC 50%);
   background: -moz-linear-gradient(right, #F6FBFF 50%, #ECECEC 50%);
@@ -36,7 +37,7 @@ hr {
 }
 
 .row{
-   max-width:1280px !important;
+   max-width:1024px !important;
    margin: auto !important;
 }
 
@@ -184,15 +185,15 @@ a {
 
 
 .greyBackground{
-  background-color:  #F6FBFF;
+  /*background-color:  #F6FBFF;*/
 }
 
 .blueBackground {
-  background-color: #F6FBFF;
+  /*background-color: #F6FBFF;*/
 }
 
 .beigeBackground {
-  background-color: #F6FBFF;
+  /*background-color: #F6FBFF;*/
 }
 
 .flexer {

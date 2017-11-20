@@ -1,6 +1,6 @@
 <template>
-    <div class="col-sm-6 pb-mobile">
-      <div class="p-5">
+    <div class="col-sm-7 pb-mobile">
+      <div class="py-5 px-4">
         <div class="">
           <!-- <h4 class="mb-5" v-html="indexIndexProp.section_2.left.title"></h4> -->
           <div class="" v-html="content"></div>

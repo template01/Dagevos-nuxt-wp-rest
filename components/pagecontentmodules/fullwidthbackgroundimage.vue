@@ -1,7 +1,19 @@
 <template>
   <div class="fullimage">
-    <div :style="{'background-image':'url(\''+content.sizes.large+'\')'}" class="index-full-cover heightTall hidden-sm-down">
+    <!-- DESKTOP -->
+    <div class="wrapperHeightTall heightTall hidden-sm-down">
+      <div :style="[{'background-image':'url(\''+content.sizes.large+'\')'},{'opacity':hasTextOverlay?'0.45':'1'}]" class="index-full-cover followHeightTall">
+      </div>
+      <div class="container Aligner heightTall">
+        <div class="row  justify-content-md-center">
+          <div class="col-md-9 textoverlay">
+            <h4 v-html="textoverlay"></h4>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- MOBILE -->
     <div class="container px-5 hidden-sm-up">
       <div class="row">
         <div class="col-sm-12 ">
@@ -24,11 +36,40 @@ export default {
 
     }
   },
-  props: ['content'],
+  computed:{
+    hasTextOverlay:function(){
+      if (this.textoverlay.length>0){
+        return true
+      }else{
+        return false
+      }
+    }
+  },
+  props: ['content','textoverlay'],
 
 
 }
 </script>
 
+
 <style lang="scss" scoped>
+.textoverlay{
+
+}
+.wrapperHeightTall{
+  position: relative;
+}
+.followHeightTall{
+position: absolute;
+height: 100%;
+top: 0;
+width: 100%;
+}
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 </style>

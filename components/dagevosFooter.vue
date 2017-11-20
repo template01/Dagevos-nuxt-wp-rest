@@ -1,9 +1,9 @@
 <template>
-<div id="dagevosFooter" class="container  px-5 pt-mobile greyBackground">
+<div id="dagevosFooter" class="container px-5 pt-mobile greyBackground">
 
   <div class="row">
     <div class="col-sm-6">
-      <div class="p-5">
+      <div class=" py-5 px-4">
         <div class="">
 
           <p class=" ">

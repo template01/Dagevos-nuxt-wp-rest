@@ -119,9 +119,9 @@ export default {
     // this.test()
     var vm = this
 
-    setTimeout(function(){
+    setTimeout(function() {
       vm.setShadowMenuDesktopHeight()
-    },250)
+    }, 250)
 
     if (_.VERSION) {
       console.log('underscore loaded')
@@ -137,15 +137,12 @@ export default {
 }
 </script>
 <style>
-#menuDesktop .nuxt-link-exact-active p{
+#menuDesktop .nuxt-link-exact-active p {
   font-weight: 500 !important;
 }
-
 </style>
 
 <style lang="scss" scoped>
-
-
 #menuMobile {
     width: 100%;
 
@@ -207,22 +204,24 @@ export default {
     transition: 0s;
     // position: fixed;
     width: 100%;
-    background: #E6F4FF;
-    z-index: 999999999999;
+    // background: #E6F4FF;
+    background: #f3f3f3;
+    z-index: 100;
     top: 0;
 
     // transition: margin-bottom 0.5s;
 
 }
 
-#menuDesktopLogoWrapper{
-  transition: padding-top 0.5s;
+#menuDesktopLogoWrapper {
+    transition: padding-top 0.5s;
 }
 #menuWrapper {
-    z-index: 999999999999;
+    z-index: 100;
     left: 0 !important;
     width: 100% !important;
-    background: #E6F4FF;
+    // background: #E6F4FF;
+    background: #f3f3f3;
     .smallLogo {
         a {
             margin: 0 auto;
@@ -259,6 +258,18 @@ export default {
             float: left;
             margin: 0;
         }
+    }
+
+    .nuxt-link-exact-active:before {
+        content: url("~/faviconsm.svg");
+        /* with class ModalCarrot ??*/
+        position: relative;
+        /*or absolute*/
+        // z-index: 100000;
+        /*a number that's more than the modal box*/
+        // left: -50px;
+        top: 3px;
+        padding-right: 4px;
     }
 
     .menuitemsInner {

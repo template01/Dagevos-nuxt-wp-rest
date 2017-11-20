@@ -10,19 +10,19 @@
   <div class="">
     <div :class="uniqueId" class="">
         <!-- <div class="dagevosSingleReferentie card p-3" v-if="show"> -->
-        <div class="Aligner p-5">
-          <div class="Aligner-item Aligner-item--top p-5">
+        <div class="Aligner py-5 px-4">
+          <div class="Aligner-item Aligner-item--top py-5 px-4">
             <div class="">
               <p class="card-title float-left mr-3">Referentie</p>
               <nuxt-link class="card-title float-right mr-3" to="/referenties"><p class="">Lees meer referenties</p></nuxt-link>
             </div>
           </div>
-          <div class="Aligner-item Aligner-item--middle p-5">
+          <div class="Aligner-item Aligner-item--middle py-5 px-4">
             <transition name="fade">
             <p v-if="show" class="card-text referenceSingleBlurb" v-html="popupContent.blurb"></p>
           </transition>
           </div>
-          <div class="Aligner-item Aligner-item--bottom p-5">
+          <div class="Aligner-item Aligner-item--bottom py-5 px-4">
             <p class="float-left" style="margin-bottom:0" v-html="popupContent.name+' -&nbsp;'"></p>
             <p class="float-left" style="margin-bottom:0" v-html="popupContent.function+' -&nbsp;'"></p>
             <p class="float-left" style="margin-bottom:0" v-html="popupContent.company"></p>

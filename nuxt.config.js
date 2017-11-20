@@ -15,7 +15,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Leiderschapsontwikkeling bij Het Echte Werkt! spiegelt, reflecteert, confronteert en zet aan tot actie zodat je als leider weet waar je voor staat en wat je staat te doen.'
+        content: 'Nuxt.js project'
       }
     ],
     link: [{
