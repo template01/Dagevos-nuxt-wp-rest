@@ -1,5 +1,7 @@
 <template>
 <div>
+
+  <!-- MOBILE -->
   <div id="menuMobile" class="hidden-md-up p-5">
     <div id="menuMobileInner" class="columnwrapper container p-5">
       <div class="p-5">
@@ -17,7 +19,7 @@
 
         <b-collapse id="collapse1" class="mt-2 mobileMenuItems">
           <div>
-            <nuxt-link v-for="link in orderedMenulist" class="" :to="link.slug">
+            <nuxt-link v-for="link in orderedMenulist" class="" :to="link.slug === 'index' ? '/' : link.slug">
               <p v-html="link.title.rendered">
               </p>
             </nuxt-link>
@@ -32,6 +34,7 @@
     </div>
   </div>
 
+  <!-- DESKTOP -->
 
   <div id="shadow-menuDesktop" class="hidden-md-down" :style="{'height':shadowMenuDesktopHeight+'px'}"></div>
   <div id="menuDesktop" class="hidden-md-down" :style="fixMenuDesktop ? {'position':'fixed'}:{}">
@@ -39,10 +42,16 @@
     <div id="menuDesktopLogoWrapper" class="columnwrapper container pl-5 pr-5" :class="smallLogoShow ? 'pt-4':'pt-5'">
       <div class="row">
         <div class="logo">
-          <nuxt-link :to="'/'">
+          <!-- <nuxt-link :to="'/'"> -->
+          <div class="menuDesktopLogoInnerWrapper">
+
             <img v-if="!smallLogoShow" src="content/img/HetEchteWerk_CMYK.817d17a.png" />
-            <img v-else src="content/img/hetechtewerk_cmyk_sm.50643ea.png" />
-          </nuxt-link>
+            <div class="Aligner" v-else>
+              <img style="float:left" src="content/img/hetechtewerk_cmyk_sm_cropped.png" />
+              <h2 style="margin:0;float:left;color:black !important;text-decoration:none !important;" v-html="$route.path === '/' ? 'leiderschaps ontwikkeling' : $el.querySelector('.nuxt-link-exact-active p').innerHTML "></h2>
+            </div>
+          </div>
+          <!-- </nuxt-link> -->
         </div>
       </div>
     </div>
@@ -53,7 +62,7 @@
         <div class="menuitems columnwrapper container">
           <div class="menuitemsInner pb-4" :class="smallLogoShow ? 'pt-0':'pt-4'">
             <div class="pt-2">
-              <nuxt-link v-for="link in orderedMenulist" class="" :to="link.slug">
+              <nuxt-link v-for="link in orderedMenulist" class=""  :to="link.slug === 'index' ? '/' : link.slug">
                 <p v-html="link.title.rendered === 'Index' ? 'Home':link.title.rendered">
                 </p>
               </nuxt-link>
@@ -143,6 +152,25 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Aligner-item {
+  max-width: 50%;
+}
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+}
+
 #menuMobile {
     width: 100%;
 
@@ -188,7 +216,7 @@ export default {
     width: 100%;
     margin: 0 auto;
     display: flex;
-    a {
+    .menuDesktopLogoInnerWrapper {
         margin: 0 auto;
 
     }
@@ -249,6 +277,7 @@ export default {
     margin: 0 auto;
     display: table;
     a {
+        text-decoration: none;
         padding-left: 10px;
         padding-right: 10px;
         display: inline-flex;

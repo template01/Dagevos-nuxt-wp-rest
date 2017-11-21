@@ -5,14 +5,13 @@
     <!-- {{section}} -->
 
     <referentiesSlideshow v-if="section.acf_fc_layout === 'references_carousel'" :refsProp="referenties"></referentiesSlideshow>
-    <fullwidthbackgroundimage v-if="section.acf_fc_layout === 'full_width_background_image'" :content="section.content" :textoverlay="section.text_overlay" ></fullwidthbackgroundimage>
+    <fullwidthbackgroundimage v-if="section.acf_fc_layout === 'full_width_background_image'" :slidecontent="section.slide" ></fullwidthbackgroundimage>
     <fullwidthlogostrip v-if="section.acf_fc_layout === 'full_width_logo_strip'" :content="section.content"></fullwidthlogostrip>
     <fullwidthtextblock v-if="section.acf_fc_layout === 'full_width_text_block'" :backgroundcolor="section.background_color" :content="section.content"></fullwidthtextblock>
     <columnwrapper :backgroundcolor="section.background_color" v-if="section.acf_fc_layout === 'column_content'">
       <template v-for="(columncontent, index) in section.content">
-          <textblock  v-if="columncontent.acf_fc_layout === 'text_block'" :content="columncontent.content" :link="columncontent.link ?[columncontent.link_text,columncontent.link_url]:''" ></textblock>
-          <!-- <illustration  v-if="columncontent.acf_fc_layout === 'illustration'" :content="columncontent.content" ></illustration> -->
-          <imagecomp  v-if="columncontent.acf_fc_layout === 'illustration'" :content="columncontent.content" ></imagecomp>
+
+          <textblock  v-if="columncontent.acf_fc_layout === 'text_block'" :icon="columncontent.icon" :content="columncontent.content" :link="columncontent.link ?[columncontent.link_text,columncontent.link_url]:''" ></textblock>
           <imagecomp v-if="columncontent.acf_fc_layout === 'half_width_image'" :index="index" :content="columncontent.content" ></imagecomp>
           <!-- <popupreferentie  v-if="columncontent.acf_fc_layout === 'popup_reference'" :content="columncontent.content"></popupreferentie> -->
         </template>
@@ -44,7 +43,6 @@
 import _ from 'lodash'
 import fullwidthbackgroundimage from '~/components/pagecontentmodules/fullwidthbackgroundimage.vue'
 import textblock from '~/components/pagecontentmodules/textblock.vue'
-import illustration from '~/components/pagecontentmodules/illustration.vue'
 import referentiesSlideshow from '~/components/dagevosReferentiesSlideshow.vue'
 import fullwidthlogostrip from '~/components/pagecontentmodules/fullwidthlogostrip.vue'
 import fullwidthtextblock from '~/components/pagecontentmodules/fullwidthtextblock.vue'
@@ -66,7 +64,6 @@ export default {
   components: {
     fullwidthbackgroundimage,
     textblock,
-    illustration,
     imagecomp,
     popupreferentie,
     fullwidthtextblock,

@@ -1,9 +1,13 @@
 <template>
     <div class="col-sm-7 pb-mobile">
       <div class="py-5 px-4">
-        <div class="">
+        <div class="" :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
           <!-- <h4 class="mb-5" v-html="indexIndexProp.section_2.left.title"></h4> -->
+          <div v-if="icon" class="pr-3">
+            <img :src="icon.url"/>
+          </div>
           <div class="" v-html="content"></div>
+
           <nuxt-link v-if="link.length>0" class="float-right mt-2 mb-5" :to="link[1]" v-html="link[0]+' <i class=\'fa fa-hand-o-right\' aria-hidden=\'true\'></i>'"></nuxt-link>
 
             <!-- <nuxt-link class="float-right mt-2 mb-5" :to="indexIndexProp.section_2.left.button.link" v-html="indexIndexProp.section_2.left.button.content+' <i class=\'fa fa-hand-o-right\' aria-hidden=\'true\'></i>'"></nuxt-link> -->
@@ -21,7 +25,7 @@ export default {
 
     }
   },
-  props: ['content','link'],
+  props: ['content','link','icon'],
 
 
 }

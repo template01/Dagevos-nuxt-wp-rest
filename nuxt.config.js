@@ -50,13 +50,18 @@ module.exports = {
       src: '~/plugins/vueawesomeswiper-plugin.js',
       ssr: false
     },
+    {
+      src: '~/plugins/lazyload.js',
+      ssr: false
+    }
+
     // {
     //   src: '~/plugins/stickyjs-plugin.js',
     //   ssr: false
     // }
   ],
 
- router: {
+  router: {
     // base: '/testing'
   },
   //
@@ -110,6 +115,7 @@ module.exports = {
      ** Run ESLINT on save
      */
 
-    vendor: ['axios', 'bootstrap-vue', 'vue-awesome-swiper']
+
+    vendor: ['axios', 'bootstrap-vue', 'vue-awesome-swiper', 'vue-lazyload']
   }
 }

@@ -9,19 +9,50 @@ body {
   color: #552E87;
 }
 
+.fadeInContent{
+
+      -webkit-animation: fadein .75s;
+         -moz-animation: fadein .75s;
+          -ms-animation: fadein .75s;
+           -o-animation: fadein .75s;
+              animation: fadein .75s;
+
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
 .spinner{
   width: 100px !important;
   height: 100px !important;
   background-color: #552E87 !important;
 }
-
 .page-enter-active, .page-leave-active {
-  transition: opacity .150s;
+  transition: opacity .5s;
 }
 .page-enter, .page-leave-to {
-  opacity: 0.150;
+  opacity: 0;
 }
-
 
 
 @media (max-width:991px) {
@@ -331,10 +362,9 @@ a {
 }
 
 .index-full-cover {
-  /*background: url('~/content/img/FIRST_Rotterdam_Kantoren_uitzicht2.jpg') no-repeat center center fixed;*/
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /*background-attachment: fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="fadeInContent">
   <dagevosHeader :menuitems="menuitems"></dagevosHeader>
   <dagevosPageContent :referenties="referenties" :pagecontent="pagecontent[0]"></dagevosPageContent>
   <!-- <dagevosIndex :indexIndexProp="indexIndex" :indexRefsProp="indexRefs" :indexOpdrachtsProp="indexOpdrachts"></dagevosIndex> -->

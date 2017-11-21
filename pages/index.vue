@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="fadeInContent">
   <dagevosHeader :menuitems="menuitems"></dagevosHeader>
   <dagevosPageContent :referenties="referenties" :pagecontent="pagecontent[0]"></dagevosPageContent>
   <!-- <dagevosIndex :indexIndexProp="indexIndex" :indexRefsProp="indexRefs" :indexOpdrachtsProp="indexOpdrachts"></dagevosIndex> -->
@@ -113,6 +113,13 @@ export default {
 </script>
 
 <style>
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 .container {}
 
 .title {
