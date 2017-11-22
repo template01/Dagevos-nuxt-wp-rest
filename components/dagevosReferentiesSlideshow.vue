@@ -1,35 +1,29 @@
 <template>
 <div id="dagevosReferenties" class="">
 
-  <!-- <swiper :options="swiperOption" :not-next-tick="notNextTick" ref="mySwiper">
-    <swiper-slide>I'm Slide 1</swiper-slide>
-    <swiper-slide>I'm Slide 2</swiper-slide>
-    <swiper-slide>I'm Slide 3</swiper-slide>
-    <swiper-slide>I'm Slide 4</swiper-slide>
-    <swiper-slide>I'm Slide 5</swiper-slide>
-    <swiper-slide>I'm Slide 6</swiper-slide>
-    <swiper-slide>I'm Slide 7</swiper-slide>
-    <div class="swiper-pagination"  slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-    <div class="swiper-scrollbar"   slot="scrollbar"></div>
-  </swiper> -->
 
-
-
-  <div class="container  px-5 greyBackground">
+  <div class="container pb-5 px-5 greyBackground">
     <div class="row">
 
 
       <swiper class="greyBackground" :options="swiperOption" ref="mySwiper" style="">
         <swiper-slide class="" v-for="(referentie, index) in refsProp" v-bind:key="index">
           <div class="col-sm-6 float-left">
-            <div class="p-5" style="">
+            <div class="py-5 pr-4 pl-5" style="">
               <div class="">
-                <h4 class="" v-html="referentie.acf.name"></h4>
-                <h4 class="" v-html="referentie.acf.function"></h4>
-                <h1 v-html="referentie.acf.blurb">
-                </h1>
+                <div class="row pb-1">
+                  <img class="float-left pr-3 pb-1" src="content/img/icon_qoute.svg"/>
+                  <div class="float-left pt-1">
+                    <h4 class="mb-0"  v-html="referentie.acf.name"></h4>
+                    <h4 class="" v-html="referentie.acf.function + ' - ' + referentie.acf.company"></h4>
+                  </div>
+                </div>
+                <div class="row">
+
+                <i class="referentieBlurb" v-html="referentie.acf.blurb">
+                </i>
+              </div>
+
               </div>
             </div>
           </div>
@@ -37,7 +31,7 @@
           <transition name="fade">
 
           <div v-if="showRef" class="col-sm-6 float-left  hidden-sm-up ">
-            <div class="p-5" style="">
+            <div class="p-4" style="">
               <div class="">
                 <div v-html="referentie.acf.full_reference">
                 </div>
@@ -58,7 +52,7 @@
           </div>
 
           <div class="col-sm-6 float-left  hidden-sm-down ">
-            <div class="p-5" style="">
+            <div class="py-5 pr-5 pl-4" style="">
               <div class="">
                 <div v-html="referentie.acf.full_reference">
                 </div>
@@ -98,6 +92,7 @@ export default {
       swiperOption: {
         notNextTick: true,
         autoplay: 3000,
+        loop: true,
         grabCursor: true,
         setWrapperSize: true,
         autoHeight: true,
@@ -142,40 +137,7 @@ export default {
       },800)
     }
   },
-    // data() {
-    //   return {
-    //     // NotNextTick is a component's own property, and if notNextTick is set to true, the component will not instantiate the swiper through NextTick, which means you can get the swiper object the first time (if you need to use the get swiper object to do what Things, then this property must be true)
-    //     // notNextTick是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true
-    //     notNextTick: true,
-    //     swiperOption: {
-    //       // swiper options 所有的配置同swiper官方api配置
-    //       autoplay: 3000,
-    //       direction: 'vertical',
-    //       grabCursor: true,
-    //       setWrapperSize: true,
-    //       autoHeight: true,
-    //       pagination: '.swiper-pagination',
-    //       paginationClickable: true,
-    //       prevButton: '.swiper-button-prev',
-    //       nextButton: '.swiper-button-next',
-    //       scrollbar: '.swiper-scrollbar',
-    //       mousewheelControl: true,
-    //       observeParents: true,
-    //       // if you need use plugins in the swiper, you can config in here like this
-    //       // 如果自行设计了插件，那么插件的一些配置相关参数，也应该出现在这个对象中，如下debugger
-    //       debugger: true,
-    //       // swiper callbacks
-    //       // swiper的各种回调函数也可以出现在这个对象中，和swiper官方一样
-    //       onTransitionStart (swiper) {
-    //         console.log(swiper)
-    //       }
-    //       // more Swiper configs and callbacks...
-    //       // ...
-    //     }
-    //   }
-    // },
-    // // you can find current swiper instance object like this, while the notNextTick property value must be true
-    // // 如果你需要得到当前的swiper对象来做一些事情，你可以像下面这样定义一个方法属性来获取当前的swiper对象，同时notNextTick必须为true
+
     computed: {
       swiper() {
         return this.$refs.mySwiper.swiper
@@ -196,6 +158,12 @@ export default {
     a {
         text-decoration: none;
         color: inherit !important;
+    }
+
+    .referentieBlurb{
+      *{
+        color:  #552E87;
+      }
     }
 }
 

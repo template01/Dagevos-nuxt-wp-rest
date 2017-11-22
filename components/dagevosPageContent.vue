@@ -11,26 +11,25 @@
     <columnwrapper :backgroundcolor="section.background_color" v-if="section.acf_fc_layout === 'column_content'">
       <template v-for="(columncontent, index) in section.content">
 
-          <textblock  v-if="columncontent.acf_fc_layout === 'text_block'" :icon="columncontent.icon" :content="columncontent.content" :link="columncontent.link ?[columncontent.link_text,columncontent.link_url]:''" ></textblock>
+          <textblock  v-if="columncontent.acf_fc_layout === 'text_block'" :halfwidthcolumn="columncontent.half_width_column" :icon="columncontent.icon" :content="columncontent.content" :link="columncontent.link ?[columncontent.link_text,columncontent.link_url]:''" ></textblock>
           <imagecomp v-if="columncontent.acf_fc_layout === 'half_width_image'" :index="index" :content="columncontent.content" ></imagecomp>
-          <!-- <popupreferentie  v-if="columncontent.acf_fc_layout === 'popup_reference'" :content="columncontent.content"></popupreferentie> -->
+          <singlereferentie  v-if="columncontent.acf_fc_layout === 'popup_reference'" :content="columncontent.content"></singlereferentie>
         </template>
     </columnwrapper>
 
     <template  v-if="index<pagecontentdata.length - 1">
       <div  v-if="section.acf_fc_layout != 'full_width_background_image' && pagecontentdata[index+1].acf_fc_layout != 'full_width_background_image'"  class="container">
         <div class="row justify-content-md-center">
-          <div class=" col-md-9">
+          <div class=" col-md-9 mb-1">
             <hr>
           </div>
         </div>
       </div>
     </template>
 
-
   </div>
 
-  <div v-if="$route.path==='/contact'">
+  <div class="mb-3" v-if="$route.path==='/contact'">
     <iframe width="100%" height="450" frameborder="0" style="border:0; display:block;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBdpujfRGgsh0YZh6sRV9csRsrV9onmAls
     &q=De+Fabriek+van+Delfshaven,NL" allowfullscreen>
 </iframe>
@@ -46,7 +45,7 @@ import textblock from '~/components/pagecontentmodules/textblock.vue'
 import referentiesSlideshow from '~/components/dagevosReferentiesSlideshow.vue'
 import fullwidthlogostrip from '~/components/pagecontentmodules/fullwidthlogostrip.vue'
 import fullwidthtextblock from '~/components/pagecontentmodules/fullwidthtextblock.vue'
-import popupreferentie from '~/components/pagecontentmodules/popupreferentie.vue'
+import singlereferentie from '~/components/pagecontentmodules/singlereferentie.vue'
 import imagecomp from '~/components/pagecontentmodules/image.vue'
 import columnwrapper from '~/components/pagecontentmodules/columnwrapper.vue'
 
@@ -65,7 +64,7 @@ export default {
     fullwidthbackgroundimage,
     textblock,
     imagecomp,
-    popupreferentie,
+    singlereferentie,
     fullwidthtextblock,
     fullwidthlogostrip,
     referentiesSlideshow,

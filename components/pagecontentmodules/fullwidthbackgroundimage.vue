@@ -13,7 +13,7 @@
 
 
         <div class="container Aligner heightTall  justify-content-md-center">
-          <div class="row col-md-7">
+          <div class="row maxwidth960">
           <div class="" style="margin:0 auto;">
             <div class="textoverlay ">
               <h4 v-html="slide.text_overlay"></h4>
@@ -99,7 +99,9 @@ export default {
     // -webkit-transform: initial !important;
     // transform: initial !important;
 }
-
+.maxwidth960{
+  max-width: 760px !important;
+}
 
 .backgroundImage{
   background-size: cover

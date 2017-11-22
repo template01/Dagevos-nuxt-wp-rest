@@ -1,5 +1,5 @@
 <template>
-    <div class="col-sm-7 pb-mobile">
+    <div class="pb-mobile" :class="halfwidthcolumn ? 'col-sm-6':'col-sm-7' ">
       <div class="py-5 px-4">
         <div class="" :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
           <!-- <h4 class="mb-5" v-html="indexIndexProp.section_2.left.title"></h4> -->
@@ -25,7 +25,7 @@ export default {
 
     }
   },
-  props: ['content','link','icon'],
+  props: ['content','link','icon','halfwidthcolumn'],
 
 
 }

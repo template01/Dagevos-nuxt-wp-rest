@@ -109,6 +109,14 @@ p, ul, ol {
   line-height: 1.5;
   font-weight: 400;
 }
+
+
+p.smallText {
+  font-size: 16px;
+}
+
+
+
 @media (max-width:500px) {
 
   h1{
@@ -179,12 +187,6 @@ img.illustration{
 }
 
 
-p.smallText {
-  font-size: 18px;
-  font-weight: normal !important;
-  line-height: 1.55;
-}
-
 /*p.largeText {
   font-size: 28px;
   font-weight: 200;
@@ -198,6 +200,11 @@ p.smallText {
 }
 
 a {
+  color: #552E87 !important;
+  /*color: inherit;*/
+}
+
+.purple-text{
   color: #552E87 !important;
 }
 
