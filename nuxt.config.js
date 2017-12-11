@@ -15,7 +15,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Nuxt.js project'
+        content: 'Het Echte Werkt! | Leiderschapsontwikkeling is het eigenzinnige en no nonsense coachingsbureau van René Dagevos. '
       }
     ],
     link: [{
@@ -31,6 +31,9 @@ module.exports = {
   loading: {
     color: '#552E87'
   },
+  modules:[
+'@nuxtjs/sitemap'
+],
   css: [
     '~assets/css/font-awesome.min.css',
     '~/assets/fonts/coolvetica+aileron/stylesheet.css',
@@ -52,6 +55,7 @@ module.exports = {
   ],
 
   router: {
+	//base: '/testing'
   },
 
 

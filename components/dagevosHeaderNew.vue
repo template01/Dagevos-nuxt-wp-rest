@@ -290,7 +290,7 @@ export default {
     }
 
     .nuxt-link-exact-active:before {
-        content: url("~/faviconsm.svg");
+        content: url("/faviconsm.svg");
         /* with class ModalCarrot ??*/
         position: relative;
         /*or absolute*/
