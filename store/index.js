@@ -2,6 +2,7 @@ export const state = () => ({
   apiRoot: 'https://hetechtewerkt.nl/backend/wp-json/wp/v2/',
   menuitems: null,
   references: null,
+  title:''
 })
 
 export const mutations = {
@@ -15,6 +16,10 @@ export const mutations = {
   },
   SET_references(state,input){
     state.references = input
+  },
+
+  SET_title(state,input){
+    state.title = input
   }
 }
 

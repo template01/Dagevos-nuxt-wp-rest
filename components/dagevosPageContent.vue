@@ -29,7 +29,7 @@
 
   </div>
 
-  <div class="mb-3" v-if="$route.path==='/contact'">
+  <div class="mb-3 mt-3" v-if="$route.path==='/contact'">
     <iframe width="100%" height="450" frameborder="0" style="border:0; display:block;" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBdpujfRGgsh0YZh6sRV9csRsrV9onmAls
     &q=De+Fabriek+van+Delfshaven,NL" allowfullscreen>
 </iframe>

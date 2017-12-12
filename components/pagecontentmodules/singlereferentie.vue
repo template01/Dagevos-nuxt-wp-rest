@@ -19,7 +19,8 @@
           <!-- <nuxt-link class="float-right mt-2 mb-5" :to="indexIndexProp.section_2.left.button.link" v-html="indexIndexProp.section_2.left.button.content+' <i class=\'fa fa-hand-o-right\' aria-hidden=\'true\'></i>'"></nuxt-link> -->
         </div>
       </div>
-      <p  class="text-right smallText" v-html="popupContent.name+ ' -&nbsp;' + popupContent.function + ' -&nbsp;' + popupContent.company"></p>
+      <!-- <p  class="text-right smallText" v-html="popupContent.name+ addHyphen(popupContent.name) + popupContent.function + addHyphen(popupContent.function) + popupContent.company"></p> -->
+      <p  class="text-right smallText" v-html="popupContent.name+ addHyphen(popupContent.name) + popupContent.company"></p>
       <!-- <p class="float-right" style="margin-bottom:0" v-html="popupContent.name+' -&nbsp;'"></p>
       <p class="float-right" style="margin-bottom:0" v-html="popupContent.function+' -&nbsp;'"></p>
       <p class="float-right" style="margin-bottom:0" v-html="popupContent.company"></p> -->
@@ -69,6 +70,16 @@ export default {
 
   props: ['content'],
   methods: {
+
+    addHyphen: function(inputField){
+      if(inputField.length>0){
+        return ' -&nbsp;'
+      }else{
+        return ''
+
+      }
+    },
+
     getpopup: function() {
       var vm = this
       axios.get(this.$store.state.apiRoot + 'references/' + this.content).then(function(response) {

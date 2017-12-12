@@ -6,7 +6,7 @@
     <div class="row">
 
 
-      <swiper class="greyBackground" :options="swiperOption" ref="mySwiper" style="">
+      <swiper class="greyBackground" style="padding-bottom:40px;" :options="swiperOption" ref="mySwiper">
         <swiper-slide class="" v-for="(referentie, index) in refsProp" v-bind:key="index">
           <div class="col-sm-6 float-left">
             <div class="py-5 pr-4 pl-5" style="">
@@ -15,7 +15,8 @@
                   <img class="float-left pr-3 pb-1" src="content/img/icon_qoute.svg"/>
                   <div class="float-left pt-1">
                     <h4 class="mb-0"  v-html="referentie.acf.name"></h4>
-                    <h4 class="" v-html="referentie.acf.function + ' - ' + referentie.acf.company"></h4>
+                    <!-- <h4 class="" v-html="referentie.acf.function + ' - ' + referentie.acf.company"></h4> -->
+                    <h4 class="" v-html="referentie.acf.company"></h4>
                   </div>
                 </div>
                 <div class="row">
@@ -31,7 +32,7 @@
           <transition name="fade">
 
           <div v-if="showRef" class="col-sm-6 float-left  hidden-sm-up ">
-            <div class="p-4" style="">
+            <div class="p-2" style="">
               <div class="">
                 <div v-html="referentie.acf.full_reference">
                 </div>
@@ -72,7 +73,7 @@
 
       <div class="">
         <p style="margin: 0; font-size:100%; text-align:center;">
-          swipe voor meer referenties
+          (swipe rechts voor meer referenties)
         </p>
       </div>
 
@@ -168,8 +169,8 @@ export default {
 }
 
 .swiper-wrapper{
-  padding-top: 15px;
-  padding-bottom: 45px;
+  // padding-top: 15px;
+  // padding-bottom: 45px;
 }
 
 .swiper-button-next {

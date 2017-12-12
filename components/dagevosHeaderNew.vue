@@ -20,8 +20,10 @@
         <b-collapse id="collapse1" class="mt-2 mobileMenuItems">
           <div>
             <nuxt-link v-for="link in orderedMenulist" class="" :to="link.slug === 'index' ? '/' : link.slug">
-              <p v-html="link.title.rendered">
+
+              <p v-html="link.title.rendered === 'Index' ? 'Home':link.title.rendered">
               </p>
+
             </nuxt-link>
           </div>
           <!-- <b-card> -->
@@ -39,7 +41,7 @@
   <div id="shadow-menuDesktop" class="hidden-md-down" :style="{'height':shadowMenuDesktopHeight+'px'}"></div>
   <div id="menuDesktop" class="hidden-md-down" :style="fixMenuDesktop ? {'position':'fixed'}:{}">
 
-    <div id="menuDesktopLogoWrapper" class="columnwrapper container pl-5 pr-5" :class="smallLogoShow ? 'pt-4':'pt-5'">
+    <div id="menuDesktopLogoWrapper" class="columnwrapper container pl-5 pr-5" :class="smallLogoShow ? 'pt-3':'pt-4'">
       <div class="row">
         <div class="logo">
           <!-- <nuxt-link :to="'/'"> -->
@@ -47,11 +49,23 @@
 
             <img v-if="!smallLogoShow" src="content/img/HetEchteWerk_CMYK.817d17a.png" />
             <div class="Aligner" v-else>
+              <template v-if="$route.path === '/'">
+                <img src="content/img/HetEchteWerk_CMYK.817d17aSM.png" />
+              </template>
+              <template v-else>
+
               <img style="float:left" src="content/img/hetechtewerk_cmyk_sm_cropped.png" />
-              <h2 style="margin:0;float:left;color:black !important;text-decoration:none !important;" v-html="$route.path === '/' ? 'leiderschaps ontwikkeling' : $el.querySelector('.nuxt-link-exact-active p').innerHTML "></h2>
+              <h2 style="margin:0;float:left;color:black !important;text-decoration:none !important;" v-html="$route.path === '/' ? 'leiderschaps ontwikkeling' : $store.state.title "></h2>
+            </template>
+
             </div>
           </div>
           <!-- </nuxt-link> -->
+          <div class="toTop" v-if="smallLogoShow" @click="scrollToTop()">
+            <h5 style="font-size:25px; padding-top:15px"><i class="fa fa-arrow-up" aria-hidden="true"></i></h5>
+          </div>
+
+
         </div>
       </div>
     </div>
@@ -60,9 +74,9 @@
       <div id="menuWrapper" class="blueBackground">
 
         <div class="menuitems columnwrapper container">
-          <div class="menuitemsInner pb-4" :class="smallLogoShow ? 'pt-0':'pt-4'">
+          <div class="menuitemsInner pb-2" :class="smallLogoShow ? 'pt-0':'pt-2'">
             <div class="pt-2">
-              <nuxt-link v-for="link in orderedMenulist" class=""  :to="link.slug === 'index' ? '/' : link.slug">
+              <nuxt-link v-for="link in orderedMenulist" class="" :to="link.slug === 'index' ? '/' : link.slug">
                 <p v-html="link.title.rendered === 'Index' ? 'Home':link.title.rendered">
                 </p>
               </nuxt-link>
@@ -110,6 +124,11 @@ export default {
     // menuitems
   },
   methods: {
+
+    scrollToTop: function(){
+      this.$SmoothScroll(0,500);
+    },
+
     swabMenuDesktopLogo: function() {
       var vm = this
       var logoHeight = this.$el.querySelector('#menuDesktop .logo').offsetHeight
@@ -139,6 +158,10 @@ export default {
     window.addEventListener('scroll', _.throttle(() => {
       vm.swabMenuDesktopLogo()
     }, 200))
+
+    this.$store.commit('SET_title', this.$el.querySelector('.nuxt-link-exact-active p').innerHTML)
+
+
   },
 
 
@@ -152,23 +175,22 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-
 .Aligner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .Aligner-item {
-  max-width: 50%;
+    max-width: 50%;
 }
 
 .Aligner-item--top {
-  align-self: flex-start;
+    align-self: flex-start;
 }
 
 .Aligner-item--bottom {
-  align-self: flex-end;
+    align-self: flex-end;
 }
 
 #menuMobile {
@@ -213,9 +235,24 @@ export default {
 }
 
 .logo {
+
     width: 100%;
     margin: 0 auto;
     display: flex;
+    position: relative;
+    .toTop {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        right: -10px;
+        transition:margin-top 0.35s;
+        cursor: pointer;
+
+        &:hover{
+          margin-top:-8px;
+        }
+    }
+
     .menuDesktopLogoInnerWrapper {
         margin: 0 auto;
 
@@ -278,8 +315,8 @@ export default {
     display: table;
     a {
         text-decoration: none;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
         display: inline-flex;
         cursor: pointer;
         font-family: inherit !important;
@@ -289,15 +326,23 @@ export default {
         }
     }
 
+    .nuxt-link-exact-active {
+        * {
+
+            color: #552E87 !important;
+        }
+    }
+
     .nuxt-link-exact-active:before {
         content: url("/faviconsm.svg");
         /* with class ModalCarrot ??*/
-        position: relative;
+        position: absolute;
+        left: -2px;
+        top: 3px;
         /*or absolute*/
         // z-index: 100000;
         /*a number that's more than the modal box*/
         // left: -50px;
-        top: 3px;
         padding-right: 4px;
     }
 
@@ -305,6 +350,9 @@ export default {
         margin: 0 auto;
         display: inherit;
 
+        a {
+            position: relative;
+        }
     }
 }
 </style>

@@ -6,31 +6,21 @@
       </div>
     </div>
 
-  <div class="row">
+  <!--  STANDARD FOOTER -->
+  <div v-if="$route.path !='/contact'" class="row">
     <div class="col-sm-6">
       <div class=" py-5 px-4">
         <div class="">
-
           <p class="smallText">
-
             Wil je meer weten en/of vrijblijvend in gesprek gaan?
             <br />
+            <i class="fa-fw fa fa-phone" aria-hidden="true"></i>  Bel me op telefoonnummer <a style="text-decoration:none" href="tel:06 51 24 18 61">06 – 51 24 18 61</a>
             <br />
-            Bel me op telefoonnummer <a style="text-decoration:none" href="tel:06 51 24 18 61"><i class="fa fa-phone" aria-hidden="true"></i> 06 – 51 24 18 61</a> of mail me via <a style="text-decoration:none" href="mailto:rene@hetechtewerkt.nl"> <i class="fa fa-envelope-o" aria-hidden="true"></i> <span class=""> rene@hetechtewerkt.nl</span></a>
-            <br />
-            <br />
-            Of beter nog: kom een goeie kop koffie drinken in Rotterdam.
 
-            <!-- <a style="text-decoration:none" href="tel:06 51 24 18 61"><i class="fa fa-phone pr-2" aria-hidden="true"></i>06 51 24 18 61</a>
+            <i class="fa-fw fa fa-envelope-o" aria-hidden="true"></i> Mail me via <a style="text-decoration:none" href="mailto:rene@hetechtewerkt.nl"> <span class=""> rene@hetechtewerkt.nl</span></a>
             <br />
-            <a style="text-decoration:none" href="mailto:rene@hetechtewerkt.nl"><i class="fa fa-envelope-o" aria-hidden="true" style="position:absolute; margin-top:4px; "></i> <span class="pl-4">rene@hetechtewerkt.nl</span></a>
-
-            <br />
-            <a style="text-decoration:none" href="https://www.linkedin.com/in/renedagevos/"><i class="fa fa-linkedin" aria-hidden="true" style="position:absolute; margin-top:4px; "></i> <span class="pl-4">renedagevos</span></a>
-            <br /><i class="fa fa-heart-o" aria-hidden="true" style="position:absolute; margin-top:4px; "></i> <span class="pl-4"> Website door
-            <a href="http://www.template01.info">Template Studio</a> en <a href="http://pumphouse.nl/">The Pumphouse</a></span> -->
+            <i class="fa-fw fa fa-coffee" aria-hidden="true"></i> Of beter nog: kom een goeie kop koffie drinken in Rotterdam.
           </p>
-          <!-- <nuxt-link to="#" class="btn btn-primary">Go somewhere</nuxt-link> -->
         </div>
       </div>
 
@@ -40,26 +30,61 @@
       <div class="p-5">
         <div class="">
           <p class="smallText">
-            Het Echte Werkt! | Leiderschapsontwikkeling
+            <span class="hetwerkticon"><img  src="/faviconsm.svg" /></span> Het Echte Werkt! | Leiderschapsontwikkeling
             <br />
+            <a style="text-decoration:none" href="https://goo.gl/maps/WavUb5WFYVL2" target="_blank">De Fabriek van Delfshaven<br /> Mathenesserdijk 416-J<br /> 3026 GV Rotterdam</a>
             <br />
-            De Fabriek van Delfshaven<br /> Mathenesserdijk 416-J<br /> 3026 GV Rotterdam
-            <br />
-            <br />
-            <i class="fa fa-copyright" aria-hidden="true"></i> 2017 Het Echte Werkt! | Leiderschapsontwikkeling
+            <i class="fa-fw fa fa-copyright" aria-hidden="true"></i> 2017 Het Echte Werkt! | Leiderschapsontwikkeling
           </p>
-          <!-- <nuxt-link to="#" class="btn btn-primary">Go somewhere</nuxt-link> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!--  CONTACT FOOTER -->
+  <div v-else class="row">
+    <div class="col-sm-6">
+      <div class=" py-5 px-4">
+        <div class="">
+          <p class="smallText">
+            <i class="fa-fw fa fa-heart-o" aria-hidden="true"></i> Website door <a href="https://template-studio.nl" target="_blank" rel="noopener">Template Studio</a> en <a href="http://pumphouse.nl/" target="_blank" rel="noopener">The Pumphouse</a>
+            <br />
+            <i class="fa-fw fa fa-camera-retro" aria-hidden="true"></i> Foto's door Carola Roos
+          </p>
         </div>
       </div>
 
     </div>
+
+    <div class="col-sm-6">
+      <div class="p-5">
+        <div class="">
+          <p class="smallText">
+            <span class="hetwerkticon"><img  src="/faviconsm.svg" /></span> Het Echte Werkt! | Leiderschapsontwikkeling
+            <br />
+            <i class="fa-fw fa fa-copyright" aria-hidden="true"></i> {{(new Date()).getFullYear()}} Het Echte Werkt! | Leiderschapsontwikkeling
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>
 
 </div>
 </template>
 <style lang="scss">
 #dagevosFooter {
+
+  .hetwerkticon{
+    position: relative;
+  }
+
+
+
     *{
       color:  #552e87;
     }

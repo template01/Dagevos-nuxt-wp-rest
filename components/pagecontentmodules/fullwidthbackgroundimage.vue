@@ -7,18 +7,18 @@
   <div class="wrapperHeightTall heightTall hidden-sm-down">
     <swiper class="followHeightTall" :options="swiperOption" ref="mySwiper" style="">
       <swiper-slide class="item" style="background:#f3f3f3" v-for="(slide, index) in slidecontent" v-bind:key="index">
-        <div :style="[{'background-image':'url(\''+slide.content.sizes.large+'\')'},{'opacity':hasTextOverlay(slide.text_overlay)?'0.45':'1'}]" class="followHeightTall index-full-cover"></div>
-         <!-- <img :data-src="slide.content.sizes.large" class="swiper-lazy"> -->
-         <!-- <img :data-src="slide.content.sizes.large" class="swiper-lazy"> -->
+        <div :style="[{'background-image':'url(\''+slide.content.sizes.large+'\')'},{'opacity':hasTextOverlay(slide.text_overlay)?'1':'1'}]" class="followHeightTall index-full-cover"></div>
+        <!-- <img :data-src="slide.content.sizes.large" class="swiper-lazy"> -->
+        <!-- <img :data-src="slide.content.sizes.large" class="swiper-lazy"> -->
 
 
         <div class="container Aligner heightTall  justify-content-md-center">
           <div class="row maxwidth960">
-          <div class="" style="margin:0 auto;">
-            <div class="textoverlay ">
-              <h4 v-html="slide.text_overlay"></h4>
+            <div class="" style="margin:0 auto;">
+              <div class="textoverlay p-5">
+                <h4 v-html="slide.text_overlay"></h4>
+              </div>
             </div>
-          </div>
           </div>
         </div>
 
@@ -51,7 +51,7 @@ export default {
       swiperOption: {
         effect: 'fade',
         notNextTick: true,
-        autoplay: 3000,
+        autoplay: 5000,
         preloadImages: false,
         lazy: true,
         allowSlidePrev: false,
@@ -71,15 +71,15 @@ export default {
   },
 
 
-    methods: {
-      hasTextOverlay: function(input) {
-        if (input.length > 0) {
-          return true
-        } else {
-          return false
-        }
+  methods: {
+    hasTextOverlay: function(input) {
+      if (input.length > 0) {
+        return true
+      } else {
+        return false
       }
-    },
+    }
+  },
 
   props: ['slidecontent'],
 
@@ -89,7 +89,6 @@ export default {
 
 
 <style lang="scss" scoped>
-
 .item {
     // -webkit-perspective: initial !important;
     // perspective: initial !important;
@@ -99,15 +98,24 @@ export default {
     // -webkit-transform: initial !important;
     // transform: initial !important;
 }
-.maxwidth960{
-  max-width: 760px !important;
+.maxwidth960 {
+    max-width: 760px !important;
 }
 
-.backgroundImage{
-  background-size: cover
+.backgroundImage {
+    background-size: cover;
 }
 .textoverlay {
+    background: rgba(243, 243, 243, 0.65);
+    border-radius: 4px;
+    h4{
+      font-family: Radnika !important;
+      font-weight: 400 !important;
     }
+    h4:last-of-type{
+      margin-bottom: 0px !important;
+    }
+}
 .wrapperHeightTall {
     position: relative;
 }
