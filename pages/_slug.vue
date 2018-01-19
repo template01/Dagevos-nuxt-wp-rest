@@ -31,16 +31,13 @@ export default {
     dagevosFooter
   },
 
-  head() {
-    return {
-      title: 'Het Echte Werkt - ' + this.$store.state.title,
-      meta: [{
-        // hid: 'description',
-        // name: 'description',
-        // content: 'My custom description'
-      }]
-    }
-  },
+  // head() {
+  //   return {
+  //     // title: 'Het Echte Werkt - ' + this.$store.state.title,
+  //     title: 'Het Echte Werkt! | Leiderschapsontwikkeling',
+  //
+  //   }
+  // },
 
   data: function() {
     return {}

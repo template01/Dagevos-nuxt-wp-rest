@@ -1,12 +1,16 @@
 body {
   /*background: #E6F4FF;*/
-  background: #f3f3f3;
+  background: #f6f5fd;
   /*background: -webkit-linear-gradient(left, #F6FBFF 50%, #ECECEC 50%);
   background: -o-linear-gradient(right, #F6FBFF 50%, #ECECEC 50%);
   background: -moz-linear-gradient(right, #F6FBFF 50%, #ECECEC 50%);
   background: linear-gradient(to right, red #F6FBFF%, #ECECEC 50%);*/
   overflow-x: hidden;
   color: #552E87;
+}
+html{
+  overflow-x: hidden;
+
 }
 
 @media (max-width: 991px) {
@@ -190,8 +194,17 @@ p, ul, ol {
   font-weight: 400;
 }
 
+
+
 p.smallText {
   font-size: 16px;
+}
+
+
+@media (max-width: 991px) {
+  p.smallText {
+    font-size: 14px;
+  }
 }
 
 @media (max-width:500px) {
@@ -225,9 +238,6 @@ input, .input-group, .input-group-addon {
   color: initial !important;
 }
 
-li {
-  margin: 1rem;
-}
 
 .pullimage-right {
   margin-right: -63px;
@@ -320,6 +330,12 @@ a:hover{
 
 .heightTall {
   min-height: 600px;
+}
+
+@media (max-width: 991px) {
+  .heightTall {
+    min-height: 300px;
+  }
 }
 
 .spacerTopS {

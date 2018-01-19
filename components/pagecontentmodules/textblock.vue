@@ -3,7 +3,7 @@
   <div class="py-5 px-4">
     <div class="" :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
       <!-- <h4 class="mb-5" v-html="indexIndexProp.section_2.left.title"></h4> -->
-      <div v-if="icon" class="pr-3">
+      <div v-if="icon" class="icon pr-3">
         <img :src="icon.url" />
       </div>
       <div class="textcontent" :class="icon ?'iconcontent':''" v-html="content"></div>
@@ -46,6 +46,11 @@ a:hover {
 }
 </style>
 <style lang="scss">
+.icon{
+  img{
+    width: 34px
+  }
+}
 .textcontent:not(.iconcontent) {
     @media (max-width: 991px) {
         h4 {

@@ -4,19 +4,21 @@
   <!-- {{slidecontent}} -->
   <!-- DESKTOP -->
 
-  <div class="wrapperHeightTall heightTall hidden-sm-down">
+  <div class="wrapperHeightTall heightTall">
     <swiper class="followHeightTall" :options="swiperOption" ref="mySwiper" style="">
-      <swiper-slide class="item" style="background:#f3f3f3" v-for="(slide, index) in slidecontent" v-bind:key="index">
+      <swiper-slide class="item" style="background:#f6f5fd" v-for="(slide, index) in slidecontent" v-bind:key="index">
         <div :style="[{'background-image':'url(\''+slide.content.sizes.large+'\')'},{'opacity':hasTextOverlay(slide.text_overlay)?'1':'1'}]" class="followHeightTall index-full-cover"></div>
         <!-- <img :data-src="slide.content.sizes.large" class="swiper-lazy"> -->
         <!-- <img :data-src="slide.content.sizes.large" class="swiper-lazy"> -->
 
 
-        <div class="container Aligner heightTall  justify-content-md-center">
-          <div class="row maxwidth960">
-            <div class="" style="margin:0 auto;">
-              <div class="textoverlay p-5">
-                <h4 v-html="slide.text_overlay"></h4>
+        <div class=" Aligner heightTall  justify-content-md-center">
+          <div class=" pb-5">
+            <div class="row px-4 pb-5" style="margin:0 auto;">
+              <div class="textoverlay m-0">
+                <div class="p-5">
+                  <h4 v-html="slide.text_overlay"></h4>
+                </div>
               </div>
             </div>
           </div>
@@ -106,15 +108,26 @@ export default {
     background-size: cover;
 }
 .textoverlay {
-    background: rgba(243, 243, 243, 0.65);
+    // margin: 10px !important;
+    background: rgba(246, 245, 253, 0.75);
     border-radius: 4px;
-    h4{
-      font-family: Radnika !important;
-      font-weight: 400 !important;
+    h4 {
+        font-family: Radnika !important;
+        font-weight: 400 !important;
+        font-size: 1.5rem!important;
     }
-    h4:last-of-type{
-      margin-bottom: 0px !important;
+    h4:last-of-type {
+        margin-bottom: 0 !important;
     }
+    @media (max-width: 991px) {
+        margin: 15px !important;
+
+
+        h4 {
+            font-size: 1.2rem!important;
+        }
+    }
+
 }
 .wrapperHeightTall {
     position: relative;
@@ -126,8 +139,13 @@ export default {
     width: 100%;
 }
 .Aligner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // align-items:center;
+    // justify-content:center;
+    > div {
+        bottom: 0;
+        position: absolute;
+        width: 100% !important;
+    }
 }
 </style>

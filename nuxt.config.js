@@ -6,7 +6,8 @@ module.exports = {
 
 
   head: {
-    title: 'Het Echte Werkt!',
+    title: 'Het Echte Werkt! | Leiderschapsontwikkeling',
+
     meta: [{
         charset: 'utf-8'
       },
@@ -22,7 +23,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Het Echte Werkt! | Leiderschapsontwikkeling is het eigenzinnige en no nonsense coachingsbureau van René Dagevos. '
+        content: 'Het Echte Werkt! | Leiderschapsontwikkeling is het eigenzinnige en no nonsense coachingsbureau van René Dagevos. Ik heb me gespecialiseerd in het coachen van ambitieuze leiders en teams op hoog niveau. Zodanig dat zij zelf in staat zijn effectiever sturing te geven aan hun leiderschap.'
       },
 
       {

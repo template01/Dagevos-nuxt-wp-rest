@@ -2,43 +2,37 @@
 <div>
 
 
-  <div  data-v-71b732af="" class="columnwrapper container px-5 pt-mobile pb-mobile">
-    <div  class="row">
-      <div  data-v-71b732af="" class="pb-mobile col-sm-12" >
-        <div  class="pt-5 px-4">
-          <div  style="display: flex;">
-            <div >
-              <h4>Het Echte Werkt! | Leiderschapsontwikkeling werkt voor en met:</h4>
+
+  <div class="logoWrapperDesktop container px-4 ">
+    <div class="row">
+
+
+      <swiper class="hidden-md-down" :options="swiperOption" ref="mySwiper" style="">
+        <div class="swiper-button-prev hidden-sm-down" style='background-image:' slot="button-prev"></div>
+        <div class="swiper-button-next hidden-sm-down" slot="button-next"></div>
+        <swiper-slide class="" v-for="(item, index) in contentin4th" v-bind:key="index">
+          <div class="row p-5 ">
+            <div class="logo" v-for="image in item" :style="{'width':100/content.slice(0,4).length+'%'}">
+              <a :href="image.url" target="_blank"><img :src="image.logo.sizes.medium" /></a>
             </div>
           </div>
-        </div>
+        </swiper-slide>
+      </swiper>
+
+      <div class=" container p-4 hidden-md-up">
+        <swiper class="" :options="swiperOption" ref="mySwiper" style="">
+          <div class="swiper-button-prev" style='background-image:' slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+          <swiper-slide class="px-3" v-for="(item, index) in contentin4th" v-bind:key="index">
+            <div class="row p-5 ">
+              <div class="logo" v-for="image in item" :style="{'width':100/content.slice(0,2).length+'%'}">
+                <a :href="image.url" target="_blank"><img :src="image.logo.sizes.medium" /></a>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
-  </div>
-
-  <div class="logoWrapperDesktop container p-4 hidden-md-down">
-
-    <swiper class="ass" :options="swiperOption" ref="mySwiper" style="">
-      <swiper-slide class="" v-for="(item, index) in contentin4th" v-bind:key="index">
-        <div class="row p-5 ">
-          <div class="logo" v-for="image in item" :style="{'width':100/content.slice(0,4).length+'%'}">
-            <a :href="image.url" target="_blank"><img :src="image.logo.sizes.medium" /></a>
-          </div>
-        </div>
-      </swiper-slide>
-    </swiper>
-  </div>
-
-  <div class="logoWrapperDesktop container p-4 hidden-md-up">
-    <swiper class="ass" :options="swiperOption" ref="mySwiper" style="">
-      <swiper-slide class="" v-for="(item, index) in contentin4th" v-bind:key="index">
-        <div class="row p-5 ">
-          <div class="logo" v-for="image in item" :style="{'width':100/content.slice(0,2).length+'%'}">
-            <a :href="image.url" target="_blank"><img :src="image.logo.sizes.medium" /></a>
-          </div>
-        </div>
-      </swiper-slide>
-    </swiper>
   </div>
 
 </div>
@@ -52,15 +46,15 @@ export default {
       showRef: false,
       swiperOption: {
         notNextTick: true,
-        autoplay: 3000,
+        // autoplay: 3500,
         loop: true,
         // grabCursor: true,
         setWrapperSize: true,
         autoHeight: true,
         // pagination: '.swiper-pagination',
         paginationClickable: true,
-        // prevButton: '.swiper-button-prev',
-        // nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
         // scrollbar: '.swiper-scrollbar',
         // mousewheelControl: true,
         observeParents: true,
@@ -84,8 +78,12 @@ export default {
         }
         return [this.slice(0, n)].concat(this.slice(n).chunk(n));
       };
+      if (window.innerWidth > 992) {
+        return this.content.chunk(4);
+      } else {
+        return this.content.chunk(2);
 
-      return this.content.chunk(4);
+      }
 
     }
   }
@@ -94,20 +92,42 @@ export default {
 </script>
 
 <style lang="scss" scoped >
+.swiper-slide {
+    // display: none;
+    pointer-events: none;
+}
 .logoWrapperDesktop {
     // max-width: 75%;
 }
+
 .logo {
     display: flex;
-    height: 100px;
+    height: 120px;
     a {
-        display: flex;
+        width: 100%;
+        height: 100%;
+        // display: flex;
 
     }
     img {
-        width: 100%;
-        padding: 25px;
+        max-width: 100%;
+        max-height: 100%;
+        padding: 15px;
         margin: 0 auto;
+        display: block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (min-width: 992px) {
+
+    .logo {
+
+        img {
+            padding: 25px;
+        }
     }
 }
 </style>

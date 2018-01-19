@@ -1,7 +1,7 @@
 <template>
 <div class="col-sm-5  pb-mobile">
   <!-- <div class="backgroundImage" :style="{'background-image':'url('+content.sizes.large+')'}"></div> -->
-  <img class=" px-4 py-5 verticalAlign lazyload" v-lazy="content.sizes.large" />
+  <img class=" px-2 py-5 verticalAlign lazyload" v-lazy="content.sizes.large" />
 
 </div>
 </template>

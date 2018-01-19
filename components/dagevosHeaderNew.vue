@@ -2,6 +2,7 @@
 <div>
 
   <!-- MOBILE -->
+  <div id="shadow-menuDesktop" class="hidden-md-up" :style="{'height':shadowMenuMobileHeight+'px'}"></div>
   <div id="menuMobile" class="hidden-md-up p-5">
     <div id="menuMobileInner" class="columnwrapper container p-5">
       <div class="p-5">
@@ -18,14 +19,12 @@
         </div>
 
         <b-collapse id="collapse1" class="mt-2 mobileMenuItems">
-          <div>
-            <nuxt-link v-for="link in orderedMenulist" class="" :to="link.slug === 'index' ? '/' : link.slug">
+          <nuxt-link v-for="link in orderedMenulist" class="" :to="link.slug === 'index' ? '/' : link.slug">
 
-              <p v-html="link.title.rendered === 'Index' ? 'Home':link.title.rendered">
-              </p>
+            <p v-html="link.title.rendered === 'Index' ? 'Home':link.title.rendered">
+            </p>
 
-            </nuxt-link>
-          </div>
+          </nuxt-link>
           <!-- <b-card> -->
           <!-- <p class="card-text">Collapse contents Here</p> -->
 
@@ -39,28 +38,26 @@
   <!-- DESKTOP -->
 
   <div id="shadow-menuDesktop" class="hidden-md-down" :style="{'height':shadowMenuDesktopHeight+'px'}"></div>
-  <div id="menuDesktop" class="hidden-md-down" :style="fixMenuDesktop ? {'position':'fixed'}:{}">
+  <div id="menuDesktop" class="hidden-md-down" :class="smallLogoShow ? 'scrolled':'not-scrolled'" :style="fixMenuDesktop ? {'position':'fixed'}:{}">
 
     <div id="menuDesktopLogoWrapper" class="columnwrapper container pl-5 pr-5" :class="smallLogoShow ? 'pt-3':'pt-4'">
       <div class="row">
         <div class="logo">
-          <!-- <nuxt-link :to="'/'"> -->
           <div class="menuDesktopLogoInnerWrapper">
 
             <img v-if="!smallLogoShow" src="content/img/HetEchteWerk_CMYK.817d17a.png" />
             <div class="Aligner" v-else>
-              <template v-if="$route.path === '/'">
-                <img src="content/img/HetEchteWerk_CMYK.817d17aSM.png" />
-              </template>
-              <template v-else>
+              <!-- <template v-if="$route.path === '/'"> -->
+              <img src="content/img/HetEchteWerk_CMYK.817d17aSM.png" />
+              <!-- </template> -->
+              <!-- <template v-else> -->
 
-              <img style="float:left" src="content/img/hetechtewerk_cmyk_sm_cropped.png" />
-              <h2 style="margin:0;float:left;color:black !important;text-decoration:none !important;" v-html="$route.path === '/' ? 'leiderschaps ontwikkeling' : $store.state.title "></h2>
-            </template>
+              <!-- <img style="float:left" src="content/img/hetechtewerk_cmyk_sm_cropped.png" /> -->
+              <!-- <h2 style="margin:0;float:left;color:black !important;text-decoration:none !important;" v-html="$route.path === '/' ? 'leiderschaps ontwikkeling' : $store.state.title "></h2> -->
+              <!-- </template> -->
 
             </div>
           </div>
-          <!-- </nuxt-link> -->
           <div class="toTop" v-if="smallLogoShow" @click="scrollToTop()">
             <h5 style="font-size:25px; padding-top:15px"><i class="fa fa-arrow-up" aria-hidden="true"></i></h5>
           </div>
@@ -71,7 +68,7 @@
     </div>
     <div class="">
 
-      <div id="menuWrapper" class="blueBackground">
+      <div id="menuWrapper" :class="smallLogoShow ? 'scrolled':'not-scrolled'" class="blueBackground">
 
         <div class="menuitems columnwrapper container">
           <div class="menuitemsInner pb-2" :class="smallLogoShow ? 'pt-0':'pt-2'">
@@ -105,6 +102,7 @@ export default {
       smallLogoShow: false,
       setMenuMarginBottom: 0,
       shadowMenuDesktopHeight: 0,
+      shadowMenuMobileHeight: 85,
     }
   },
 
@@ -125,8 +123,8 @@ export default {
   },
   methods: {
 
-    scrollToTop: function(){
-      this.$SmoothScroll(0,500);
+    scrollToTop: function() {
+      this.$SmoothScroll(0, 500);
     },
 
     swabMenuDesktopLogo: function() {
@@ -141,6 +139,9 @@ export default {
     setShadowMenuDesktopHeight: function() {
       this.shadowMenuDesktopHeight = this.$el.querySelector("#menuDesktop").offsetHeight
       this.fixMenuDesktop = true
+    },
+    setShadowMenuMobileHeight: function() {
+      this.shadowMenuMobileHeight = this.$el.querySelector("#menuMobile").offsetHeight
     }
   },
   mounted() {
@@ -149,6 +150,7 @@ export default {
 
     setTimeout(function() {
       vm.setShadowMenuDesktopHeight()
+      vm.setShadowMenuMobileHeight()
     }, 250)
 
     if (_.VERSION) {
@@ -157,6 +159,7 @@ export default {
     // window.addEventListener('scroll', this.test)
     window.addEventListener('scroll', _.throttle(() => {
       vm.swabMenuDesktopLogo()
+      vm.setShadowMenuMobileHeight()
     }, 200))
 
     this.$store.commit('SET_title', this.$el.querySelector('.nuxt-link-exact-active p').innerHTML)
@@ -194,8 +197,12 @@ export default {
 }
 
 #menuMobile {
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 999999;
     width: 100%;
-
+    background: #e7e6f4;
     display: inline-block;
     #menuMobileInner {
         display: inline-block;
@@ -221,13 +228,35 @@ export default {
             float: left;
 
             img {
-                width: 100%;
+                max-width: 100%;
+                // width: 100%;
             }
         }
 
         .mobileMenuItems {
             display: inline-block;
             width: 100%;
+            a:last-of-type {
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+            .nuxt-link-exact-active {
+              display: flex;
+                *{
+
+                    color: #552e87 !important;
+                }
+            }
+
+            .nuxt-link-exact-active:before {
+                content: url("/faviconsm.svg");
+                padding-right: 4px;
+                padding-top: 2px;
+            }
+
+
 
         }
     }
@@ -244,12 +273,12 @@ export default {
         height: 50px;
         width: 50px;
         position: absolute;
-        right: -10px;
-        transition:margin-top 0.35s;
+        right: 50px;
+        transition: margin-top 0.35s;
         cursor: pointer;
 
-        &:hover{
-          margin-top:-8px;
+        &:hover {
+            margin-top: -8px;
         }
     }
 
@@ -261,6 +290,7 @@ export default {
         margin: 0 auto;
 
     }
+
 }
 .stickyMenu {
     background: green;
@@ -270,9 +300,13 @@ export default {
     // position: fixed;
     width: 100%;
     // background: #E6F4FF;
-    background: #f3f3f3;
+    background-color: #f6f5fd;
+    transition: background-color 0.2s;
     z-index: 100;
     top: 0;
+    &.scrolled {
+        background-color: #e7e6f4;
+    }
 
     // transition: margin-bottom 0.5s;
 
@@ -281,12 +315,19 @@ export default {
 #menuDesktopLogoWrapper {
     transition: padding-top 0.5s;
 }
+#shadow-menuDesktop {
+    background: #e7e6f4;
+}
 #menuWrapper {
     z-index: 100;
     left: 0 !important;
     width: 100% !important;
     // background: #E6F4FF;
-    background: #f3f3f3;
+    background-color: #f6f5fd;
+    transition: background-color 0.2s;
+    &.scrolled {
+        background-color: #e7e6f4;
+    }
     .smallLogo {
         a {
             margin: 0 auto;
