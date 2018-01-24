@@ -3,7 +3,7 @@
 
   <!-- MOBILE -->
   <div id="shadow-menuDesktop" class="hidden-md-up" :style="{'height':shadowMenuMobileHeight+'px'}"></div>
-  <div id="menuMobile" class="hidden-md-up p-5">
+  <div id="menuMobile" class="hidden-md-up pt-5 px-5">
     <div id="menuMobileInner" class="columnwrapper container p-5">
       <div class="p-5">
         <div class="mobileLogo">

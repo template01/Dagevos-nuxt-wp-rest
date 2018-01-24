@@ -3,7 +3,7 @@
   <div class="py-5 px-4">
     <div class="" :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
       <!-- <h4 class="mb-5" v-html="indexIndexProp.section_2.left.title"></h4> -->
-      <div v-if="icon" class="icon pr-3">
+      <div v-if="icon && !isIOS" class="icon mr-3" >
         <img :src="icon.url" />
       </div>
       <div class="textcontent" :class="icon ?'iconcontent':''" v-html="content"></div>
@@ -24,6 +24,12 @@ export default {
     }
   },
   props: ['content', 'link', 'icon', 'halfwidthcolumn'],
+  computed:{
+    isIOS: function(){
+      var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      return iOS;
+    }
+  }
 
 
 }
@@ -48,15 +54,20 @@ a:hover {
 <style lang="scss">
 .icon{
   img{
-    width: 34px
+    width: 34px;
+
   }
 }
 .textcontent:not(.iconcontent) {
+
     @media (max-width: 991px) {
         h4 {
             text-align: center !important;
             padding-bottom: 15px;
         }
     }
+}
+.textcontent{
+  float: right;
 }
 </style>
