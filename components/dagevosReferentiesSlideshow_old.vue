@@ -1,20 +1,26 @@
 <template>
 <div id="dagevosReferenties" class="">
 
-  <div class="container pb-3 px-4 greyBackground">
 
-    <div class="row  px-1">
+  <div class="container pb-3 px-5 greyBackground">
+    <div class="" v-for="(referentie, index) in contentin2[0]">
+      {{referentie.acf.name}}
+    </div>
+    <div class="row">
+
+
+
+
       <swiper class="greyBackground" style="padding-bottom:40px;" :options="swiperOption" ref="mySwiper">
-        <swiper-slide class="" v-for="(refsPair, index) in contentin2" v-bind:key="index">
+        <swiper-slide class="" v-for="(referentie, index) in refsProp" v-bind:key="index">
           <div class="swiper-slide-inner">
 
-            <div v-for="referentie in refsPair" class="col-sm-6 float-left">
-
-              <div class="pr-0 pl-0" style="">
+            <div class="col-sm-6 float-left">
+              <div class="pt-4 pr-0 pl-0" style="">
                 <div class="">
                   <div class="row pb-1">
                     <div class="titleWrapper">
-                      <img style="align-self:end" class="float-left pr-3 pt-3" src="content/img/icon_qoute.svg" />
+                      <img class="float-left pr-3 pb-1" src="content/img/icon_qoute.svg" />
                       <div class="float-left pt-1">
                         <h4 class="mb-0" v-html="referentie.acf.name"></h4>
                         <h4 class="" v-html="referentie.acf.company"></h4>
@@ -23,9 +29,21 @@
                   </div>
                 </div>
               </div>
-              <div class="pt-1 pb-2 pr-0 pl-0" style="">
+            </div>
+
+            <div class="col-sm-6 float-left  hidden-sm-down ">
+              <div class="pt-4 pr-0 pl-0" style="">
                 <div class="">
                   <i class="referentieBlurb smallText" v-html="referentie.acf.blurb"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 float-left  hidden-sm-up ">
+              <div class="p-2" style="">
+                <div class="">
+                  <i class="referentieBlurb smallText" v-html="referentie.acf.blurb">
+                  </i>
                 </div>
               </div>
             </div>
@@ -42,6 +60,9 @@
       </swiper>
 
     </div>
+
+
+
     <div class=" hidden-sm-up beigeBackground">
 
       <div class="">
@@ -56,7 +77,6 @@
 </div>
 </template>
 <script>
-import _ from 'lodash'
 export default {
   props: ['refsProp', 'opdrachtsProp'],
 
@@ -66,16 +86,13 @@ export default {
       showRef: false,
       swiperOption: {
         notNextTick: true,
-        // autoplay: 3000,
+        autoplay: 3000,
         loop: true,
-        // grabCursor: true,
+        grabCursor: true,
         setWrapperSize: true,
         autoHeight: true,
         pagination: '.swiper-pagination',
-        // pagination: {
-        //   el: '.swiper-pagination',
-        //   clickable: true,
-        // },
+        paginationClickable: true,
         prevButton: '.swiper-button-prev',
         nextButton: '.swiper-button-next',
         // scrollbar: '.swiper-scrollbar',
@@ -120,21 +137,6 @@ export default {
     swiper() {
       return this.$refs.mySwiper.swiper
     },
-    filteroutdisabled: function() {
-
-      var filtered = []
-      var vm = this
-      var test = _.forEach(this.refsProp, function(reference, index) {
-        console.log(reference.acf.show_references_page)
-        if (reference.acf.show_references_page) {
-          filtered.push(vm.refsProp[index])
-        }
-      });
-
-      return filtered
-
-
-    },
     contentin2: function() {
 
       Array.prototype.chunk = function(n) {
@@ -144,15 +146,7 @@ export default {
         return [this.slice(0, n)].concat(this.slice(n).chunk(n));
       };
 
-
-
-
-      if (window.innerWidth > 992) {
-        return this.filteroutdisabled.chunk(2);
-      } else {
-        return this.filteroutdisabled.chunk(1);
-
-      }
+      return this.refsProp.chunk(2);
 
     }
   },
@@ -161,7 +155,6 @@ export default {
     // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
     console.log('this is current swiper instance object', this.swiper)
     // this.swiper.slideTo(3, 1000, false)
-
   }
 
 }
@@ -172,7 +165,7 @@ export default {
 
     .swiper-slide-inner {
         // max-width: 600px;
-        max-width: 85%;
+        max-width: 75%;
         margin: 0 auto;
     }
 }

@@ -79,7 +79,7 @@ export default {
 
       let [menuitemsRes, referentiesRes] = await Promise.all([
         axios.get(store.state.apiRoot + 'pages' + '?fields=id,title.rendered,slug,menu_order'),
-        axios.get(store.state.apiRoot + 'references' + '?fields=acf'),
+        axios.get(store.state.apiRoot + 'references' + '?per_page=100&fields=acf'),
       ])
       // GET PAGE CONTENT
       if (route.path != '/') {

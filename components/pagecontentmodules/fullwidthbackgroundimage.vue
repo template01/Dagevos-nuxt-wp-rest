@@ -53,7 +53,9 @@ export default {
       swiperOption: {
         effect: 'fade',
         notNextTick: true,
-        autoplay: 5000,
+        touchRatio: 0,
+        allowTouchMove: false,
+        autoplay: 5500,
         preloadImages: false,
         lazy: true,
         allowSlidePrev: false,
@@ -61,7 +63,6 @@ export default {
         setWrapperSize: true,
         autoHeight: true,
         observeParents: true,
-        debugger: true,
         // swiper callbacks
         // swiper的各种回调函数也可以出现在这个对象中，和swiper官方一样
         onSlideChangeStart(swiper) {
@@ -91,6 +92,10 @@ export default {
 
 
 <style lang="scss" scoped>
+*{
+  pointer-events: none !important;
+}
+
 .item {
     // -webkit-perspective: initial !important;
     // perspective: initial !important;

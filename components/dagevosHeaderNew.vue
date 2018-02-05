@@ -44,6 +44,8 @@
       <div class="row">
         <div class="logo">
           <div class="menuDesktopLogoInnerWrapper">
+            <!-- PRELOAD SMALL LOGO -->
+            <img style="opacity:0; position:absolute; width: 0px; height:0px;"src="content/img/HetEchteWerk_CMYK.817d17aSM.png" />
 
             <img v-if="!smallLogoShow" src="content/img/HetEchteWerk_CMYK.817d17a.png" />
             <div class="Aligner" v-else>

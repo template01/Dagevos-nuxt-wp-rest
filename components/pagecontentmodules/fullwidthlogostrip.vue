@@ -6,19 +6,21 @@
   <div class="logoWrapperDesktop container px-4 ">
     <div class="row">
 
-
+      <!-- DESKTOP -->
       <swiper class="hidden-md-down" :options="swiperOption" ref="mySwiper" style="">
         <div class="swiper-button-prev hidden-sm-down" style='background-image:' slot="button-prev"></div>
         <div class="swiper-button-next hidden-sm-down" slot="button-next"></div>
         <swiper-slide class="" v-for="(item, index) in contentin4th" v-bind:key="index">
           <div class="row p-5 ">
             <div class="logo" v-for="image in item" :style="{'width':100/content.slice(0,4).length+'%'}">
+              <!-- <a :href="image.url" target="_blank">hello</a> -->
               <a :href="image.url" target="_blank"><img :src="image.logo.sizes.medium" /></a>
             </div>
           </div>
         </swiper-slide>
       </swiper>
 
+      <!-- MOBILE -->
       <div class=" container p-4 hidden-md-up">
         <swiper class="" :options="swiperOption" ref="mySwiper" style="">
           <div class="swiper-button-prev" style='background-image:' slot="button-prev"></div>
@@ -46,19 +48,12 @@ export default {
       showRef: false,
       swiperOption: {
         notNextTick: true,
-        // autoplay: 3500,
         loop: true,
-        // grabCursor: true,
         setWrapperSize: true,
         autoHeight: true,
-        // pagination: '.swiper-pagination',
-        paginationClickable: true,
         prevButton: '.swiper-button-prev',
         nextButton: '.swiper-button-next',
-        // scrollbar: '.swiper-scrollbar',
-        // mousewheelControl: true,
         observeParents: true,
-        debugger: true,
         // swiper callbacks
         // swiper的各种回调函数也可以出现在这个对象中，和swiper官方一样
         onSlideChangeStart(swiper) {},
@@ -82,7 +77,6 @@ export default {
         return this.content.chunk(4);
       } else {
         return this.content.chunk(2);
-
       }
 
     }
@@ -94,7 +88,6 @@ export default {
 <style lang="scss" scoped >
 .swiper-slide {
     // display: none;
-    pointer-events: none;
 }
 .logoWrapperDesktop {
     // max-width: 75%;

@@ -18,7 +18,7 @@
     </columnwrapper>
 
     <template  v-if="index<pagecontentdata.length - 1">
-      <div  v-if="section.acf_fc_layout != 'full_width_background_image' && pagecontentdata[index+1].acf_fc_layout != 'full_width_background_image'"  class="container">
+      <div  v-if="(section.acf_fc_layout != 'full_width_background_image' && pagecontentdata[index+1].acf_fc_layout != 'full_width_background_image') && pagecontentdata[index+1].acf_fc_layout != 'references_carousel'"  class="container">
         <div class="row justify-content-md-center">
           <div class=" col-md-9 mb-1">
             <hr>
