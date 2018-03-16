@@ -24,7 +24,6 @@
           </div>
           <div class="Aligner-item Aligner-item--bottom py-5 px-4">
             <p class="float-left" style="margin-bottom:0" v-html="popupContent.name+' -&nbsp;'"></p>
-            <p class="float-left" style="margin-bottom:0" v-html="popupContent.function+' -&nbsp;'"></p>
             <p class="float-left" style="margin-bottom:0" v-html="popupContent.company"></p>
           </div>
         </div>

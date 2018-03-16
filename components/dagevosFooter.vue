@@ -37,7 +37,7 @@
       <div class="py-5 pr-4 ignorepaddingSmall">
         <div class="">
           <p class="smallText">
-            Bezoekadres/kantoor:
+            Kantoor/bezoekadres:
             <!-- <span class="hetwerkticon"><img  src="/faviconsm.svg" /></span> Het Echte Werkt! | Leiderschapsontwikkeling -->
             <br />
             <a style="text-decoration:none" href="https://goo.gl/maps/WavUb5WFYVL2" target="_blank">De Fabriek van Delfshaven<br /> Mathenesserdijk 416-J<br /> 3026 GV Rotterdam</a>
@@ -61,7 +61,7 @@
           <p class="smallText">
             <i class="fa-fw fa fa-heart-o" aria-hidden="true"></i> Website door <a href="https://template-studio.nl" target="_blank" rel="noopener">Template Studio</a> en <a href="http://pumphouse.nl/" target="_blank" rel="noopener">The Pumphouse</a>
             <br />
-            <i class="fa-fw fa fa-camera-retro" aria-hidden="true"></i> Foto's door Carola Roos
+            <i class="fa-fw fa fa-camera-retro" aria-hidden="true"></i> Foto's door Carola Roos en <a href="http://mei-arch.eu/" target="_blank">Mei architects</a>
           </p>
         </div>
       </div>

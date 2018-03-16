@@ -8,13 +8,13 @@
         <swiper-slide class="" v-for="(refsPair, index) in contentin2" v-bind:key="index">
           <div class="swiper-slide-inner">
 
-            <div v-for="referentie in refsPair" class="col-sm-6 float-left">
+            <div v-for="(referentie,index) in refsPair" class="col-sm-6 float-left" :style="index % 2 ? {'padding-left':'25px'} : {'padding-right':'25px'}">
 
               <div class="pr-0 pl-0" style="">
                 <div class="">
                   <div class="row pb-1">
                     <div class="titleWrapper">
-                      <img style="align-self:end" class="float-left pr-3 pt-3" src="content/img/icon_qoute.svg" />
+                      <img style="" class="pr-3" src="content/img/icon_qoute.svg" />
                       <div class="float-left pt-1">
                         <h4 class="mb-0" v-html="referentie.acf.name"></h4>
                         <h4 class="" v-html="referentie.acf.company"></h4>
@@ -35,9 +35,12 @@
 
         </swiper-slide>
 
-        <div class="swiper-pagination hidden-sm-down" slot="pagination"></div>
-        <div class="swiper-pagination swiper-pagination-sm hidden-sm-up " slot="pagination"></div>
-        <div class="swiper-button-prev hidden-sm-down" style='background-image:' slot="button-prev"></div>
+        <div class="swiper-pagination-ref hidden-sm-down" slot="pagination"></div>
+        <div class="swiper-pagination-ref swiper-pagination-ref-sm hidden-sm-up " slot="pagination"></div>
+        <!-- <div  class="swiper-button-prev hidden-sm-down" style='background-image:' slot="button-prev"></div> -->
+        <!-- <div class="swiper-button-next hidden-sm-down" slot="button-next"></div> -->
+
+        <div class="swiper-button-prev hidden-sm-down" slot="button-prev"></div>
         <div class="swiper-button-next hidden-sm-down" slot="button-next"></div>
       </swiper>
 
@@ -66,20 +69,18 @@ export default {
       showRef: false,
       swiperOption: {
         notNextTick: true,
-        // autoplay: 3000,
         loop: true,
         // grabCursor: true,
         setWrapperSize: true,
         autoHeight: true,
-        pagination: '.swiper-pagination',
-        // pagination: {
-        //   el: '.swiper-pagination',
-        //   clickable: true,
-        // },
-        prevButton: '.swiper-button-prev',
-        nextButton: '.swiper-button-next',
-        // scrollbar: '.swiper-scrollbar',
-        // mousewheelControl: true,
+        pagination: {
+          el: '.swiper-pagination-ref',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
         observeParents: true,
         debugger: true,
         // swiper callbacks
@@ -167,12 +168,21 @@ export default {
 }
 </script>
 
-<style lang="scss">
+
+
+<style lang="scss" >
+.swiper-pagination-ref {
+    text-align: center;
+    .swiper-pagination-bullet-active {
+        background: #552E87 !important;
+    }
+}
+
 @media (min-width: 992px) {
 
     .swiper-slide-inner {
         // max-width: 600px;
-        max-width: 85%;
+        max-width: 960px;
         margin: 0 auto;
     }
 }
@@ -199,27 +209,13 @@ export default {
 }
 
 .swiper-button-next {
+    margin-right: -10px;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23552E87'%2F%3E%3C%2Fsvg%3E") !important;
 }
 
 .swiper-button-prev {
+    margin-left: -10px;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23552E87'%2F%3E%3C%2Fsvg%3E") !important;
-}
-
-.swiper-pagination-bullet-active {
-    opacity: 1 !important;
-    background: #552E87 !important;
-}
-.swiper-pagination-sm {
-
-    .swiper-pagination-bullet {
-        width: 16px;
-        height: 16px;
-    }
-
-    &.swiper-pagination-bullets {
-        bottom: 0;
-    }
 }
 
 .fade-enter-active,

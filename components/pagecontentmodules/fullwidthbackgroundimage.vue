@@ -26,6 +26,9 @@
 
       </swiper-slide>
 
+      <div v-if="slidecontent.length>1" class="swiper-pagination" slot="pagination"></div>
+
+
     </swiper>
 
   </div>
@@ -55,19 +58,20 @@ export default {
         notNextTick: true,
         touchRatio: 0,
         allowTouchMove: false,
-        autoplay: 5500,
+        autoplay: {
+          delay: 8000,
+        },
         preloadImages: false,
         lazy: true,
-        allowSlidePrev: false,
-        allowSlideNext: false,
+        // allowSlidePrev: false,
+        // allowSlideNext: false,
         setWrapperSize: true,
         autoHeight: true,
         observeParents: true,
-        // swiper callbacks
-        // swiper的各种回调函数也可以出现在这个对象中，和swiper官方一样
-        onSlideChangeStart(swiper) {
-          // vm.toggleLees('collapse')
-        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
       },
 
     }
@@ -90,11 +94,19 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.swiper-pagination{
+  text-align: center;
+  .swiper-pagination-bullet-active{
+    background: #552E87 !important;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
-*{
-  pointer-events: none !important;
-}
+// *{
+//   pointer-events: none !important;
+// }
 
 .item {
     // -webkit-perspective: initial !important;
