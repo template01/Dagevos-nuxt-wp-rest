@@ -51,8 +51,10 @@ export default {
         loop: true,
         setWrapperSize: true,
         autoHeight: true,
-        prevButton: '.swiper-button-prev',
-        nextButton: '.swiper-button-next',
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
         observeParents: true,
         // swiper callbacks
         // swiper的各种回调函数也可以出现在这个对象中，和swiper官方一样

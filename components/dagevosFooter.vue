@@ -61,7 +61,8 @@
           <p class="smallText">
             <i class="fa-fw fa fa-heart-o" aria-hidden="true"></i> Website door <a href="https://template-studio.nl" target="_blank" rel="noopener">Template Studio</a> en <a href="http://pumphouse.nl/" target="_blank" rel="noopener">The Pumphouse</a>
             <br />
-            <i class="fa-fw fa fa-camera-retro" aria-hidden="true"></i> Foto's door Carola Roos en <a href="http://mei-arch.eu/" target="_blank">Mei architects</a>
+            <!-- <i class="fa-fw fa fa-camera-retro" aria-hidden="true"></i> Foto's door Carola Roos en <a href="http://mei-arch.eu/" target="_blank">Mei architects</a> -->
+            <i class="fa-fw fa fa-camera-retro" aria-hidden="true"></i> Foto's door Carola Roos
           </p>
         </div>
       </div>

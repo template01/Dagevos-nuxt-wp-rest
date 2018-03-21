@@ -14,10 +14,10 @@
                 <div class="">
                   <div class="row pb-1">
                     <div class="titleWrapper">
-                      <img style="" class="pr-3" src="content/img/icon_qoute.svg" />
-                      <div class="float-left pt-1">
-                        <h4 class="mb-0" v-html="referentie.acf.name"></h4>
-                        <h4 class="" v-html="referentie.acf.company"></h4>
+                      <img style="" class="pt-2 pr-2 float-left" src="content/img/icon_qoute.svg" />
+                      <div class=" pt-1">
+                        <h5 class="mb-0" v-html="referentie.acf.name"></h5>
+                        <h5 class="" v-html="referentie.acf.company"></h5>
                       </div>
                     </div>
                   </div>
@@ -187,7 +187,8 @@ export default {
     }
 }
 .titleWrapper {
-    display: flex;
+  width: 100%;
+    // display: flex;
     // margin: 0 auto;
 }
 #dagevosReferenties {

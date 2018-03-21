@@ -65,7 +65,7 @@ export default {
         lazy: true,
         // allowSlidePrev: false,
         // allowSlideNext: false,
-        setWrapperSize: true,
+        // setWrapperSize: true,
         autoHeight: true,
         observeParents: true,
         pagination: {
@@ -104,6 +104,11 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+.swiper-pagination{
+  background: #f6f5fd;
+  bottom:0;
+  padding-top: 10px;
+}
 // *{
 //   pointer-events: none !important;
 // }
