@@ -1,4 +1,4 @@
-# dagevos-nuxt-updated
+# testnuxt
 
 > Nuxt.js project
 

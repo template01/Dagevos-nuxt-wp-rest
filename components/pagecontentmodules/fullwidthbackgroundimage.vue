@@ -15,7 +15,7 @@
         <div class=" Aligner heightTall  justify-content-md-center">
           <div class=" pb-5">
             <div class="row px-4 pb-5" style="margin:0 auto;">
-              <div class="textoverlay m-0">
+              <div class="textoverlay"  style="margin-bottom:25px !important;">
                 <div class="p-5">
                   <h4 v-html="slide.text_overlay"></h4>
                 </div>

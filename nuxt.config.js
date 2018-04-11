@@ -7,7 +7,12 @@ module.exports = {
 
   head: {
     title: 'Het Echte Werkt! | Leiderschapsontwikkeling',
-
+    script: [
+      // BABEL POLYFILL FOR IE11
+      // { src: '/polyfill.min.js' }
+      { src: '/polyfill/polyfill.min.js' }
+      // { src: 'https://cdn.polyfill.io/v2/polyfill.min.js' }
+    ],
     meta: [{
         charset: 'utf-8'
       },
@@ -159,12 +164,13 @@ module.exports = {
     {
       src: '~/plugins/smoothscroll.js',
       ssr: false
-    }
+    },
   ],
 
   router: {
     //base: '/testing'
   },
+
 
 
   /*
@@ -174,8 +180,7 @@ module.exports = {
     /*
      ** Run ESLINT on save
      */
+     vendor: ['axios', 'bootstrap-vue', 'vue-awesome-swiper', 'vue-lazyload'],
 
-
-    vendor: ['axios', 'bootstrap-vue', 'vue-awesome-swiper', 'vue-lazyload']
   }
 }
